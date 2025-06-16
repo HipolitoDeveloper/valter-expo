@@ -29,3 +29,26 @@ export type AuthMeResponse = {
     }
     resources: Resources
 }
+
+export type RegisterParams = {
+    email: string;
+    password: string;
+    "surname": string,
+    "firstName": string,
+    birthday: string,
+    pantryName: string
+}
+
+export type RegisterResponse = {
+    accessToken: string;
+    refreshToken: string;
+    expiresIn: {
+        accessToken: number;
+        refreshToken: number;
+    },
+    expiresAt: {
+        accessToken: number;
+        refreshToken: number;
+    },
+    firstName: string;
+}

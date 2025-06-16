@@ -1,3 +1,4 @@
+import {Link} from "expo-router";
 import React from "react";
 import {Control} from "react-hook-form";
 import {Box} from "../../../../components/box";
@@ -55,7 +56,10 @@ const SigninPresentational: React.FC<SigninPresentationalProps> = ({
             </VStack>
 
             <VStack>
-                <Text>Não tem cadastro? Inscreva-se aqui</Text>
+                <Link href={'/signup'}>
+                    <Text>Não tem cadastro? Inscreva-se aqui</Text>
+                </Link>
+
             </VStack>
         </Screen>
 

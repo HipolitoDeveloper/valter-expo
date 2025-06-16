@@ -29,7 +29,6 @@ const interceptor = (instance) => (error) => {
     const originalRequest = requestConfig;
 
     if (originalRequest.url === refreshAuthenticationRoute || originalRequest.url === loginRoute) {
-
         return Promise.reject(error);
     }
 
@@ -74,7 +73,7 @@ const interceptor = (instance) => (error) => {
 
         return retryOrigReq;
     }
-    return Promise.reject(error);
+    // return Promise.reject(error);
 };
 
 export default {

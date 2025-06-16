@@ -1,5 +1,5 @@
 import request from "../../common/api/request";
-import {AuthMeResponse, LoginParams, LoginResponse} from "./type";
+import {AuthMeResponse, LoginParams, LoginResponse, RegisterParams, RegisterResponse} from "./type";
 
 const rootPath = '/auth/';
 
@@ -20,6 +20,22 @@ export const login = async ({email, password}: LoginParams): Promise<LoginRespon
 export const me = async (): Promise<AuthMeResponse> => {
     try {
         const response = await request.get(pathBuilder('me'));
+        return response.data;
+    } catch (err) {
+        return Promise.reject(err);
+    }
+};
+
+export const register = async ({email, password, firstName, surname, pantryName, birthday}: RegisterParams): Promise<RegisterResponse> => {
+    try {
+        const response = await request.post(pathBuilder('register'), {
+            email,
+            password,
+            firstName,
+            surname,
+            pantryName,
+            birthday
+        });
         return response.data;
     } catch (err) {
         return Promise.reject(err);

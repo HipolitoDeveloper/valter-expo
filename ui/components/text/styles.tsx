@@ -45,6 +45,9 @@ export const textStyle = tva({
     },
     information: {
         true: 'color-secondary-500',
+    },
+    h1: {
+      true: 'text-4xl font-bold color-primary-400',
     }
   },
 });

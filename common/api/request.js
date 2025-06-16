@@ -65,7 +65,9 @@ instance.interceptors.request.use(async (options) => {
 instance.interceptors.response.use(
     (response) => Promise.resolve(response),
     async ({response, request, ...rest}) => {
+
         const handledByRefresh = reauthentication.interceptor(instance)({response, request, ...rest});
+
         if (handledByRefresh) return handledByRefresh;
 
         let statusCode = 0;
