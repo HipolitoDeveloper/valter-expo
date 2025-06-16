@@ -1,5 +1,4 @@
-import SignIn from "../../components/ui/screens/access/signin";
-import {ThemedText} from "../../backup/ThemedText";
+import SignIn from "../../ui/screens/access/signin";
 
 const SignInScreen=  () => {
 

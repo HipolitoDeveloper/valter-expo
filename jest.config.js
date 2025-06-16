@@ -1,0 +1,12 @@
+// jest.config.js
+module.exports = {
+    preset: 'jest-expo',
+    setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+    transformIgnorePatterns: [
+        'node_modules/(?!(expo|@expo|expo-modules-core|expo-secure-store|@unimodules|@react-native|react-native|@react-navigation|@gluestack-ui|react-native-css-interop)/)',
+    ],
+    transform: {
+        '^.+\\.[jt]sx?$': 'babel-jest',
+    },
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+};
