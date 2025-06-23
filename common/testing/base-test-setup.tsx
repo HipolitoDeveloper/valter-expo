@@ -4,14 +4,12 @@ import React from 'react';
 
 // Suponha que esses sejam seus providers
 import {NavigationContainer} from '@react-navigation/native';
-import {ProfileProvider} from "../../ui/providers/profile/provider";
 import {SessionProvider} from "../../ui/providers/session/provider";
 import {withProviders} from '../utils/with-providers';
 
 
 const providers = [
     (props: any) => <SessionProvider>{props.children}</SessionProvider>,
-    (props: any) => <ProfileProvider>{props.children}</ProfileProvider>,
 ];
 
 const AllProviders = withProviders(providers);

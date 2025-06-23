@@ -17,6 +17,15 @@ export const login = async ({email, password}: LoginParams): Promise<LoginRespon
     }
 };
 
+export const logout = async () => {
+    try {
+        const response = await request.post(pathBuilder('logout'));
+        return response.data;
+    } catch (err) {
+        return Promise.reject(err);
+    }
+};
+
 export const me = async (): Promise<AuthMeResponse> => {
     try {
         const response = await request.get(pathBuilder('me'));

@@ -1,4 +1,5 @@
 import {zodResolver} from "@hookform/resolvers/zod";
+import {useRouter} from "expo-router";
 import {useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
@@ -20,6 +21,7 @@ const SignUp = () => {
         }
     });
     const {signIn} = useSession()
+    const router = useRouter();
 
     const doSignUp = async (formData: SignUpFormSchemaType) => {
 
@@ -37,6 +39,7 @@ const SignUp = () => {
                 accessToken: accessData.accessToken,
                 refreshToken: accessData.refreshToken
             })
+
 
         } catch (error) {
             if (error instanceof HttpError) {

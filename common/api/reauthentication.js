@@ -1,3 +1,4 @@
+import {triggerOnUnauthorized} from "@/common/api/auth-event";
 import {SecureStoreKeys} from "@/common/secure-store/keys";
 import * as SecureStore from "expo-secure-store";
 
@@ -9,7 +10,19 @@ const loginRoute = '/auth/login';
 
 async function tryReauthentication(instance) {
 
-    await instance.get(refreshAuthenticationRoute);
+    const response = await instance.get(refreshAuthenticationRoute);
+
+    if(response) {
+        const {accessToken, refreshToken} = response.data;
+
+        if (accessToken) {
+            await SecureStore.setItemAsync(SecureStoreKeys.ACCESS_TOKEN, accessToken);
+        }
+
+        if (refreshToken) {
+            await SecureStore.setItemAsync(SecureStoreKeys.REFRESH_TOKEN, refreshToken);
+        }
+    }
 
 }
 
@@ -64,16 +77,20 @@ const interceptor = (instance) => (error) => {
                 .then(() => {
                     isRefreshing = false;
                     retryRequests();
+
                 })
                 .catch(() => {
                     isRefreshing = false;
                     retryRequests(true);
+
+                    triggerOnUnauthorized();
+
                 });
         }
 
         return retryOrigReq;
     }
-    // return Promise.reject(error);
+    return Promise.reject(error);
 };
 
 export default {

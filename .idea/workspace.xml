@@ -5,24 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4e439a4-e9bd-4ed4-bcb3-ba7e04077f03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(access)/signup.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/access/signup/enum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/access/signup/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/access/signup/index.unit.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/access/signup/presentational/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/access/signup/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(app)/(inside)/_layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(app)/(inside)/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(app)/_layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/api/auth-event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(access)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(access)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(access)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(app)/(access)/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(access)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(app)/(access)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(access)/signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(app)/(access)/signup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/+not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/+not-found.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/api/reauthentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/api/reauthentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/api/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/api/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/testing/base-test-setup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/common/testing/base-test-setup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/use-profile.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/text/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/text/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/text/styles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/text/styles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/access/signin/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/access/signin/presentational/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/profile/context.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/profile/provider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/profile/provider.unit.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/session/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/session/context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/session/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/session/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/access/signin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/access/signin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/access/signup/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/access/signup/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -53,6 +61,7 @@
   "keyToString": {
     "Jest.ProfileProvider.executor": "Run",
     "Jest.ProfileProvider.should fetch profile when authenticated and expose context values.executor": "Run",
+    "Jest.SignUp.executor": "Run",
     "Jest.SignUp.handles HttpError during registration.executor": "Run",
     "Jest.SignUp.handles unexpected error during registration.executor": "Run",
     "Jest.SignUp.renders UI components: title, inputs, button.executor": "Run",
@@ -60,7 +69,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/ui/screens/access",
+    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/app/(app)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,31 +82,30 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/(app)" />
       <recent name="$PROJECT_DIR$/ui/screens/access" />
       <recent name="$PROJECT_DIR$/hooks" />
       <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/ui/providers/session" />
-      <recent name="$PROJECT_DIR$/services/user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/(app)" />
       <recent name="$PROJECT_DIR$/ui/components" />
       <recent name="$PROJECT_DIR$/common/utils" />
       <recent name="$PROJECT_DIR$/common/permission" />
       <recent name="$PROJECT_DIR$/services/auth" />
-      <recent name="$PROJECT_DIR$/ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.SignUp.handles unexpected error during registration">
-    <configuration name="ProfileProvider.should fetch profile when authenticated and expose context values" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.SignUp">
+    <configuration name="SignUp" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/ui/providers/profile/provider.unit.test.tsx" />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/ui/screens/access/signup/index.unit.test.tsx" />
       <test-names>
-        <test-name value="ProfileProvider" />
-        <test-name value="should fetch profile when authenticated and expose context values" />
+        <test-name value="SignUp" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -155,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.SignUp" />
         <item itemvalue="Jest.SignUp.handles unexpected error during registration" />
         <item itemvalue="Jest.SignUp.handles HttpError during registration" />
         <item itemvalue="Jest.SignUp.submits form and signs in on success" />
         <item itemvalue="Jest.SignUp.renders UI components: title, inputs, button" />
-        <item itemvalue="Jest.ProfileProvider.should fetch profile when authenticated and expose context values" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +192,8 @@
       <workItem from="1748904434060" duration="2100000" />
       <workItem from="1748998090996" duration="4354000" />
       <workItem from="1749169917477" duration="6046000" />
-      <workItem from="1750022474149" duration="19326000" />
+      <workItem from="1750022474149" duration="19522000" />
+      <workItem from="1750526709697" duration="9129000" />
     </task>
     <servers />
   </component>

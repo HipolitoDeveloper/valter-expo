@@ -1,7 +1,7 @@
 import {zodResolver} from "@hookform/resolvers/zod";
+import {useRouter} from "expo-router";
 import {useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
-import {useProfile} from "../../../../hooks/use-profile";
 import {useSession} from "../../../../hooks/use-session";
 import {login} from "../../../../services/auth";
 
@@ -17,7 +17,7 @@ const SignIn = () => {
         }
     });
     const {signIn} = useSession()
-    const {profile} = useProfile()
+    const router = useRouter();
 
     const doSignIn = async (formData: SignInFormSchemaType) => {
 

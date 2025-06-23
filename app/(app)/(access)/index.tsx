@@ -1,4 +1,4 @@
-import SignIn from "../../ui/screens/access/signin";
+import SignIn from "../../../ui/screens/access/signin";
 
 const SignInScreen=  () => {
 
