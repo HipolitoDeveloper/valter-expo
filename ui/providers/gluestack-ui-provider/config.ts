@@ -1,9 +1,7 @@
-'use client'
 import {vars} from 'nativewind'
 
 export const config = {
     light: vars({
-
         '--color-primary-0': '240 248 230',
         '--color-primary-50': '220 240 200',
         '--color-primary-100': '200 230 170',

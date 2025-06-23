@@ -1,4 +1,4 @@
-import Shoplist from "../../../ui/screens/inside/shoplist";
+import Shoplist from "../../../../ui/screens/inside/shoplist";
 
 const ShoplistScreen=  () => {
 

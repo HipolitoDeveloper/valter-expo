@@ -4,7 +4,6 @@ import {setOnUnauthorized} from "../../../common/api/auth-event";
 import {Action, Resource} from "../../../common/permission/type";
 
 import {SecureStoreKeys} from '../../../common/secure-store/keys';
-import {useSession} from "../../../hooks/use-session";
 import {me} from "../../../services/auth";
 import {AuthMeResponse} from "../../../services/auth/type";
 import {SessionContext} from "./context";
