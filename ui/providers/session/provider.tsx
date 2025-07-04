@@ -114,6 +114,7 @@ const SessionProvider: React.FC<{ children: React.ReactNode }> = ({children}) =>
                 isSessionLoading,
                 signIn,
                 signOut,
+                currentProfile,
             }}
         >
             {children}

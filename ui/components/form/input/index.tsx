@@ -191,7 +191,7 @@ const InputSlot = React.forwardRef<
 type IInputFieldProps = React.ComponentProps<typeof UIInput.Input> &
     VariantProps<typeof inputFieldStyle> & {
     className?: string,
-    control: Control<any>,
+    control?: Control<any>,
     rules?: RegisterOptions,
     name: string
 };
@@ -202,8 +202,8 @@ const InputField = React.forwardRef<
 >(function InputField({className, control, rules = {required: true}, name, ...props}, ref) {
     const {variant: parentVariant, size: parentSize} = useStyleContext(SCOPE);
 
-    return (
-        <Controller
+    if(control) {
+        return <Controller
             name={name}
             control={control}
             rules={rules}
@@ -228,6 +228,20 @@ const InputField = React.forwardRef<
                     </Text>
                 </>
             )}
+        />
+    }
+
+    return (
+        <UIInput.Input
+            ref={ref}
+            {...props}
+            className={inputFieldStyle({
+                parentVariants: {
+                    variant: parentVariant,
+                    size: parentSize,
+                },
+                class: className,
+            })}
         />
     );
 });

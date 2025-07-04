@@ -25,6 +25,7 @@ export type AuthMeResponse = {
     "firstName": string,
     "email": string,
     "pantry": {
+        id: string;
         "name": string
     }
     resources: Resources

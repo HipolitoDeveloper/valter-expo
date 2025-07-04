@@ -6,11 +6,6 @@ import {SessionContext} from "./context";
 import {SESSION_STATE} from "./enum";
 import {SessionProvider} from "./provider";
 
-jest.mock('expo-secure-store', () => ({
-    getItemAsync: jest.fn(),
-    setItemAsync: jest.fn(),
-    deleteItemAsync: jest.fn(),
-}));
 
 const mockTokens = {
     accessToken: 'test-access-token',

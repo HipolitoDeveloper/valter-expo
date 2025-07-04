@@ -5,17 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4e439a4-e9bd-4ed4-bcb3-ba7e04077f03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(app)/(inside)/(tabs)/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(app)/(inside)/(tabs)/pantry.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(app)/(inside)/(tabs)/profile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/inside/profile/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/inside/profile/presentational/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/pantry/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/pantry/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.unit.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/search-product/open-button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/enum.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/schema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(app)/(inside)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(app)/(inside)/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/providers/gluestack-ui-provider/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/gluestack-ui-provider/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/testing/setup-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/common/testing/setup-test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/form/input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/form/input/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/session/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/session/context.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/providers/session/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/session/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/session/provider.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/session/provider.unit.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -44,6 +57,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Jest.Pantry.executor": "Run",
+    "Jest.PortionTypeSelector.executor": "Run",
+    "Jest.ProductList.executor": "Run",
     "Jest.ProfileProvider.executor": "Run",
     "Jest.ProfileProvider.should fetch profile when authenticated and expose context values.executor": "Run",
     "Jest.SignUp.executor": "Run",
@@ -51,10 +67,11 @@
     "Jest.SignUp.handles unexpected error during registration.executor": "Run",
     "Jest.SignUp.renders UI components: title, inputs, button.executor": "Run",
     "Jest.SignUp.submits form and signs in on success.executor": "Run",
+    "Jest.transformValueIntoLabel().executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/app/(app)/(inside)/(tabs)",
+    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/ui/screens/inside/pantry",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,21 +84,57 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ui/screens/inside/pantry" />
+      <recent name="$PROJECT_DIR$/services" />
       <recent name="$PROJECT_DIR$/app/(app)/(inside)/(tabs)" />
       <recent name="$PROJECT_DIR$/app/(app)/(inside)" />
       <recent name="$PROJECT_DIR$/ui/screens/inside" />
-      <recent name="$PROJECT_DIR$/app/(app)" />
-      <recent name="$PROJECT_DIR$/ui/screens/access" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/(app)" />
       <recent name="$PROJECT_DIR$/ui/components" />
+      <recent name="$PROJECT_DIR$/app/(app)" />
       <recent name="$PROJECT_DIR$/common/utils" />
       <recent name="$PROJECT_DIR$/common/permission" />
       <recent name="$PROJECT_DIR$/services/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.SignUp">
+  <component name="RunManager" selected="Jest.PortionTypeSelector">
+    <configuration name="Pantry" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" />
+      <test-names>
+        <test-name value="Pantry" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="PortionTypeSelector" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.unit.test.tsx" />
+      <test-names>
+        <test-name value="PortionTypeSelector" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductList" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" />
+      <test-names>
+        <test-name value="ProductList" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="SignUp" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
@@ -94,65 +147,25 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="SignUp.handles HttpError during registration" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="transformValueIntoLabel()" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/ui/screens/access/signup/index.unit.test.tsx" />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.unit.test.tsx" />
       <test-names>
-        <test-name value="SignUp" />
-        <test-name value="handles HttpError during registration" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="SignUp.handles unexpected error during registration" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/ui/screens/access/signup/index.unit.test.tsx" />
-      <test-names>
-        <test-name value="SignUp" />
-        <test-name value="handles unexpected error during registration" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="SignUp.renders UI components: title, inputs, button" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/ui/screens/access/signup/index.unit.test.tsx" />
-      <test-names>
-        <test-name value="SignUp" />
-        <test-name value="renders UI components: title, inputs, button" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="SignUp.submits form and signs in on success" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/ui/screens/access/signup/index.unit.test.tsx" />
-      <test-names>
-        <test-name value="SignUp" />
-        <test-name value="submits form and signs in on success" />
+        <test-name value="transformValueIntoLabel()" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.PortionTypeSelector" />
+        <item itemvalue="Jest.transformValueIntoLabel()" />
+        <item itemvalue="Jest.ProductList" />
+        <item itemvalue="Jest.Pantry" />
         <item itemvalue="Jest.SignUp" />
-        <item itemvalue="Jest.SignUp.handles unexpected error during registration" />
-        <item itemvalue="Jest.SignUp.handles HttpError during registration" />
-        <item itemvalue="Jest.SignUp.submits form and signs in on success" />
-        <item itemvalue="Jest.SignUp.renders UI components: title, inputs, button" />
       </list>
     </recent_temporary>
   </component>
@@ -178,11 +191,36 @@
       <workItem from="1748998090996" duration="4354000" />
       <workItem from="1749169917477" duration="6046000" />
       <workItem from="1750022474149" duration="19522000" />
-      <workItem from="1750526709697" duration="12904000" />
+      <workItem from="1750526709697" duration="12942000" />
+      <workItem from="1750677915547" duration="205000" />
+      <workItem from="1750803798858" duration="2669000" />
+      <workItem from="1750899648853" duration="4850000" />
+      <workItem from="1750987809213" duration="4708000" />
+      <workItem from="1751421867082" duration="3049000" />
+      <workItem from="1751586286763" duration="5353000" />
+      <workItem from="1751591708726" duration="6390000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.unit.test.tsx</url>
+          <line>26</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/common/testing/setup-test.js</url>
+          <line>49</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
