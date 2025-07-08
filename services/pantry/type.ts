@@ -37,3 +37,4 @@ export type FindPantryResponse = {
 }
 
 export type PantryItem = FindPantryResponse['items'][number];
+export type ItemState = (typeof ITEM_STATE)[keyof typeof ITEM_STATE]

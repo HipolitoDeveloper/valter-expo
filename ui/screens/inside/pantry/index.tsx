@@ -1,19 +1,20 @@
 import {zodResolver} from "@hookform/resolvers/zod";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useMemo, useState} from "react";
 import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
 import {logout} from "../../../../services/auth";
 import {findPantry, updatePantry} from "../../../../services/pantry";
-import {ITEM_STATE, PantryItem} from "../../../../services/pantry/type";
+import {ITEM_STATE, ItemState, PantryItem} from "../../../../services/pantry/type";
 import PantryPresentational from "./presentational";
 import {PantryItemsSchema, PantryItemsSchemaType} from "./schema";
+import throttle from "lodash/throttle";
 
 const Pantry = () => {
     const {signOut, currentProfile} = useSession();
 
     const [loading, setLoading] = useState(false)
-    const {control, handleSubmit, formState: {isDirty, errors}, reset, watch} = useForm({
+    const {control, handleSubmit, formState: {isDirty, errors}, reset, getValues} = useForm({
         resolver: zodResolver(PantryItemsSchema),
     })
 
@@ -59,6 +60,7 @@ const Pantry = () => {
     }, [reset, currentProfile]);
 
     const savePantry = async (updatedPantry: PantryItemsSchemaType) => {
+        console.log("test throtle")
         setLoading(true)
         try {
 
@@ -87,17 +89,33 @@ const Pantry = () => {
         }
     }
 
-    const removeProductFromPantry = async (pantryItem: PantryItemsSchemaType['pantryItems'][number]) => {
-        const removedPantryItem = {
+    const updatePantryItemState = async (pantryItem: PantryItemsSchemaType['pantryItems'][number], state: ItemState) => {
+        const updatedPantryItem = {
             ...pantryItem,
-            state: ITEM_STATE.REMOVED
+            state: state
         }
 
         const updatedPantry = {
-            pantryItems: pantryItems.map(item => item.id === pantryItem.id ? removedPantryItem : item)
+            pantryItems: pantryItems.map(item => item.id === pantryItem.id ? updatedPantryItem : item)
         }
         await savePantry(updatedPantry)
     }
+
+    const onSubmit = handleSubmit(savePantry);
+
+    const throttledSubmit = useMemo(
+        () =>
+            throttle(() => {
+                const current = getValues();
+                savePantry(current);
+            }, 2000, { leading: true, trailing: true }),
+        []
+    );
+
+    const immediateSubmit = useCallback(() => {
+        onSubmit();
+    }, [onSubmit]);
+
 
     const doSomething = async () => {
         try {
@@ -121,11 +139,12 @@ const Pantry = () => {
     return (
         <PantryPresentational doSomething={doSomething}
                               control={control}
-                              updatePantry={handleSubmit(savePantry)}
                               pantryItems={pantryItems}
+                              onPortionChange={throttledSubmit}
+                              onPortionTypeChange={immediateSubmit}
                               hasModification={isDirty}
                               refreshPantry={fetchPantryItems}
-                              onRemove={removeProductFromPantry}
+                              updatePantryItemState={updatePantryItemState}
         />
     )
 }

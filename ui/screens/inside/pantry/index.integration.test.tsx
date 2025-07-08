@@ -57,32 +57,85 @@ describe('Pantry', () => {
         });
     });
 
-    it('should enable Save button when item portion is modified and call updatePantry on save', async () => {
-        const { getByText, getAllByDisplayValue, queryByText } = render(<Pantry />);
+    it('should call updatePantry immediately on select change', async () => {
+        const updated = [
+            { ...sampleItems[0], portionType: 'UNITS' },
+            sampleItems[1]
+        ];
+        (pantryService.updatePantry as jest.Mock).mockResolvedValue({ items: updated });
 
-        await waitFor(() => expect(getByText('Arroz')).toBeTruthy());
+        const { getByTestId } = render(<Pantry />);
+        await waitFor(() => expect(getByTestId('portion-type-selector-1')).toBeTruthy());
 
-        expect(queryByText('Salvar Despensa')).toBeNull();
-
-        const inputs = getAllByDisplayValue('2');
-        expect(inputs.length).toBeGreaterThan(0);
-        fireEvent.changeText(inputs[0], '5');
-
-        await waitFor(() => expect(getByText('Salvar Despensa')).toBeTruthy());
-
-        fireEvent.press(getByText('Salvar Despensa'));
+        fireEvent(getByTestId('portion-type-selector-1'), 'onValueChange', 'UNITS');
 
         await waitFor(() => {
             expect(pantryService.updatePantry).toHaveBeenCalledWith({
                 items: [
-                    { id: '1', name: 'Arroz', portion: 5, portionType: 'GRAMS', productId: 'p1', state: 'fresh', validUntil: '2025-08-01' },
-                    { id: '2', name: 'Feijão', portion: 3.5, portionType: 'GRAMS', productId: 'p2', state: 'fresh', validUntil: '2025-07-20' },
+                    {
+                        id: '1',
+                        name: 'Arroz',
+                        portion: 2,
+                        portionType: 'UNITS',
+                        productId: 'p1',
+                        state: 'fresh',
+                        validUntil: '2025-08-01',
+                    },
+                    {
+                        id: '2',
+                        name: 'Feijão',
+                        portion: 3.5,
+                        portionType: 'GRAMS',
+                        productId: 'p2',
+                        state: 'fresh',
+                        validUntil: '2025-07-20',
+                    },
                 ],
             });
         });
-
-        await waitFor(() => expect(queryByText('Salvar Despensa')).toBeNull());
     });
+
+    it('should throttle updatePantry on weight changes', async () => {
+        const updatedOnce = [
+            { ...sampleItems[0], portion: 5 },
+            sampleItems[1]
+        ];
+        (pantryService.updatePantry as jest.Mock).mockResolvedValue({ items: updatedOnce });
+
+        const { getByTestId } = render(<Pantry />);
+        await waitFor(() => expect(getByTestId('portion-input-1')).toBeTruthy());
+
+        fireEvent.changeText(getByTestId('portion-input-1'), '1');
+        fireEvent.changeText(getByTestId('portion-input-1'), '4');
+        fireEvent.changeText(getByTestId('portion-input-1'), '5');
+
+        await waitFor(() => {
+            expect(pantryService.updatePantry).toHaveBeenCalledTimes(1);
+            expect(pantryService.updatePantry).toHaveBeenCalledWith({
+                items: [
+                    {
+                        id: '1',
+                        name: 'Arroz',
+                        portion: 1,
+                        portionType: 'GRAMS',
+                        productId: 'p1',
+                        state: 'fresh',
+                        validUntil: '2025-08-01',
+                    },
+                    {
+                        id: '2',
+                        name: 'Feijão',
+                        portion: 3.5,
+                        portionType: 'GRAMS',
+                        productId: 'p2',
+                        state: 'fresh',
+                        validUntil: '2025-07-20',
+                    },
+                ],
+            });
+        });
+    });
+
     //
     // it('should refresh pantry when Refresh button is pressed', async () => {
     //     const { getByText } = render(<Pantry />);

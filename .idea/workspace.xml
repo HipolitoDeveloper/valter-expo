@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b4e439a4-e9bd-4ed4-bcb3-ba7e04077f03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/pantry/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/pantry/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/form/input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/form/input/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/schema.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,33 +40,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Jest.Pantry.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.PortionTypeSelector.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.ProductList.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.ProfileProvider.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.ProfileProvider.should fetch profile when authenticated and expose context values.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.SignUp.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.SignUp.handles HttpError during registration.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.SignUp.handles unexpected error during registration.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.SignUp.renders UI components: title, inputs, button.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.SignUp.submits form and signs in on success.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.transformValueIntoLabel().executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hipolito/Projects/valter/valter-expo/ui/screens/inside/pantry&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/hipolito/Projects/valter/valter-expo/node_modules/jest&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/hipolito/Projects/valter/valter-expo/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Jest.Pantry.executor": "Run",
+    "Jest.Pantry.should call updatePantry immediately on select change.executor": "Run",
+    "Jest.Pantry.should remove an item when trash is pressed and call updatePantry.executor": "Run",
+    "Jest.Pantry.should throttle updatePantry on weight changes.executor": "Run",
+    "Jest.PortionTypeSelector.executor": "Run",
+    "Jest.ProductList.executor": "Run",
+    "Jest.ProfileProvider.executor": "Run",
+    "Jest.ProfileProvider.should fetch profile when authenticated and expose context values.executor": "Run",
+    "Jest.SignUp.executor": "Run",
+    "Jest.SignUp.handles HttpError during registration.executor": "Run",
+    "Jest.SignUp.handles unexpected error during registration.executor": "Run",
+    "Jest.SignUp.renders UI components: title, inputs, button.executor": "Run",
+    "Jest.SignUp.submits form and signs in on success.executor": "Run",
+    "Jest.transformValueIntoLabel().executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/ui/screens/inside/pantry",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/Users/hipolito/Projects/valter/valter-expo/node_modules/jest",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/hipolito/Projects/valter/valter-expo/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ui/screens/inside/pantry" />
@@ -79,7 +86,7 @@
       <recent name="$PROJECT_DIR$/services/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.PortionTypeSelector">
+  <component name="RunManager" selected="Jest.Pantry">
     <configuration name="Pantry" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
@@ -89,6 +96,45 @@
       <test-file value="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" />
       <test-names>
         <test-name value="Pantry" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Pantry.should call updatePantry immediately on select change" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" />
+      <test-names>
+        <test-name value="Pantry" />
+        <test-name value="should call updatePantry immediately on select change" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Pantry.should remove an item when trash is pressed and call updatePantry" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" />
+      <test-names>
+        <test-name value="Pantry" />
+        <test-name value="should remove an item when trash is pressed and call updatePantry" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Pantry.should throttle updatePantry on weight changes" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" />
+      <test-names>
+        <test-name value="Pantry" />
+        <test-name value="should throttle updatePantry on weight changes" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -104,49 +150,13 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="ProductList" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" />
-      <test-names>
-        <test-name value="ProductList" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="SignUp" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/ui/screens/access/signup/index.unit.test.tsx" />
-      <test-names>
-        <test-name value="SignUp" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="transformValueIntoLabel()" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.unit.test.tsx" />
-      <test-names>
-        <test-name value="transformValueIntoLabel()" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.PortionTypeSelector" />
-        <item itemvalue="Jest.transformValueIntoLabel()" />
-        <item itemvalue="Jest.ProductList" />
         <item itemvalue="Jest.Pantry" />
-        <item itemvalue="Jest.SignUp" />
+        <item itemvalue="Jest.Pantry.should throttle updatePantry on weight changes" />
+        <item itemvalue="Jest.Pantry.should call updatePantry immediately on select change" />
+        <item itemvalue="Jest.Pantry.should remove an item when trash is pressed and call updatePantry" />
+        <item itemvalue="Jest.PortionTypeSelector" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +190,7 @@
       <workItem from="1751421867082" duration="3049000" />
       <workItem from="1751586286763" duration="5353000" />
       <workItem from="1751591708726" duration="6467000" />
-      <workItem from="1751932319715" duration="2879000" />
+      <workItem from="1751932319715" duration="5107000" />
     </task>
     <servers />
   </component>

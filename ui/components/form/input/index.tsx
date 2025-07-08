@@ -193,13 +193,14 @@ type IInputFieldProps = React.ComponentProps<typeof UIInput.Input> &
     className?: string,
     control?: Control<any>,
     rules?: RegisterOptions,
-    name: string
+    name: string,
+    onValueChange?: () => void,
 };
 
 const InputField = React.forwardRef<
     React.ComponentRef<typeof UIInput.Input>,
     IInputFieldProps
->(function InputField({className, control, rules = {required: true}, name, ...props}, ref) {
+>(function InputField({className, control, rules = {required: true}, name, onValueChange, ...props}, ref) {
     const {variant: parentVariant, size: parentSize} = useStyleContext(SCOPE);
 
     if(control) {
@@ -212,7 +213,10 @@ const InputField = React.forwardRef<
                     <UIInput.Input
                         ref={ref}
                         {...props}
-                        onChangeText={onChange}
+                        onChangeText={text => {
+                            onChange(text);
+                            onValueChange && onValueChange();
+                        }}
                         onBlur={onBlur}
                         value={value}
                         className={inputFieldStyle({

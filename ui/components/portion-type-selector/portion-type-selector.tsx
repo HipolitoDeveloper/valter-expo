@@ -14,6 +14,8 @@ import {
 type PortionTypeSelectorProps = {
     control: Control<any>;
     name: string;
+    onValueChange?: () => void;
+    testID?: string
 }
 
 const portionTypes = [
@@ -26,7 +28,7 @@ export const transformValueIntoLabel = (value: string) => {
     return portionTypes.find(type => type.value === value)?.label || '';
 }
 
-const PortionTypeSelector: React.FC<PortionTypeSelectorProps> = ({control, name}) => {
+const PortionTypeSelector: React.FC<PortionTypeSelectorProps> = ({control, name, onValueChange, testID}) => {
 
     return (
         <Controller
@@ -34,8 +36,11 @@ const PortionTypeSelector: React.FC<PortionTypeSelectorProps> = ({control, name}
             control={control}
             render={({field: {onChange, value}}) => (
                 <Select
-                    testID="portion-type-selector"
-                    onValueChange={onChange}
+                    testID={testID}
+                    onValueChange={(value) => {
+                        onChange(value);
+                        onValueChange && onValueChange();
+                    }}
                     selectedValue={transformValueIntoLabel(value)}
                 >
                     <SelectTrigger variant="underlined" size="md">
