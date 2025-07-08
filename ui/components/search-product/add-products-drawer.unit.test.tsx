@@ -1,9 +1,9 @@
 import React from 'react';
 import {render, fireEvent, waitFor} from '@testing-library/react-native';
+import {ITEM_STATE} from "../../../services/enum";
 import * as productService from '../../../services/product';
 import * as pantryService from '../../../services/pantry';
 import type {Product} from '../../../services/product/type';
-import {ITEM_STATE} from '../../../services/pantry/type';
 import ProductList from "./add-products-drawer";
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {Control} from "react-hook-form";
-import {ITEM_STATE, ItemState} from "../../../../../services/pantry/type";
+import {ITEM_STATE, ItemState} from "../../../../../services/enums";
 import {Box} from "../../../../components/box";
 import {Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText} from "../../../../components/button";
 import {Input, InputField} from "../../../../components/form/input";

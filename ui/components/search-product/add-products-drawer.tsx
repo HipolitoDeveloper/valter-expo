@@ -1,10 +1,13 @@
 import React, {useCallback, useEffect, useState} from "react";
 import HttpError from "../../../common/errors/http-error";
 import {me} from "../../../services/auth";
+import {ITEM_STATE} from "../../../services/enums";
 import {updatePantry} from "../../../services/pantry";
-import {ITEM_STATE, PantryItem} from "../../../services/pantry/type";
+import {PantryItem, UpdatePantryBody} from "../../../services/pantry/type";
 import {findAllProducts} from "../../../services/product";
 import {PORTION_TYPE, Product} from "../../../services/product/type";
+import {updateShoplist} from "../../../services/shoplist";
+import {UpdateShoplistBody} from "../../../services/shoplist/type";
 import {
     Drawer,
     DrawerBackdrop,
@@ -98,22 +101,33 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
 
     const addProducts = async () => {
         setLoading(true)
+        let updateMethod;
+        let itemState;
+
+        switch (variant) {
+            case 'pantry':
+                updateMethod = (items: UpdatePantryBody | UpdateShoplistBody) => updatePantry({items} as unknown as UpdatePantryBody)
+                itemState = ITEM_STATE.IN_PANTRY;
+                break;
+            case 'shoplist':
+                updateMethod = (items: UpdatePantryBody | UpdateShoplistBody) => updateShoplist({items} as unknown as UpdateShoplistBody)
+                itemState = ITEM_STATE.IN_CART;
+
+                break;
+        }
+
         const items = selectedProducts.map((product) => ({
             productId: product.id,
             portionType: product.defaultPortionType,
             portion: product.defaultPortion,
-            state: ITEM_STATE.IN_PANTRY,
+            state: itemState,
             validUntil: product.validUntil,
-        }));
+        })) as unknown as UpdatePantryBody | UpdateShoplistBody;
 
         try {
             setLoading(false)
-            switch (variant) {
-                case 'pantry':
-                    await updatePantry({items})
-                    break;
-            }
 
+            await updateMethod(items)
             closeDrawer()
         } catch (error) {
             if (error instanceof HttpError) {

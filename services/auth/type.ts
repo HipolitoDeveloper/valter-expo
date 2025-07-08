@@ -27,6 +27,10 @@ export type AuthMeResponse = {
     "pantry": {
         id: string;
         "name": string
+    },
+    "shoplist": {
+        id: string;
+        "name": string
     }
     resources: Resources
 }

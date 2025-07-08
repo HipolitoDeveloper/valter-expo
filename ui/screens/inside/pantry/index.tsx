@@ -4,8 +4,9 @@ import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
 import {logout} from "../../../../services/auth";
+import {ITEM_STATE, ItemState} from "../../../../services/enum";
 import {findPantry, updatePantry} from "../../../../services/pantry";
-import {ITEM_STATE, ItemState, PantryItem} from "../../../../services/pantry/type";
+import {PantryItem} from "../../../../services/pantry/type";
 import PantryPresentational from "./presentational";
 import {PantryItemsSchema, PantryItemsSchemaType} from "./schema";
 import throttle from "lodash/throttle";
@@ -60,7 +61,6 @@ const Pantry = () => {
     }, [reset, currentProfile]);
 
     const savePantry = async (updatedPantry: PantryItemsSchemaType) => {
-        console.log("test throtle")
         setLoading(true)
         try {
 
