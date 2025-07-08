@@ -2,7 +2,7 @@ import {z} from "zod";
 
 export const PantryItemsSchema = z.object({
     pantryItems: z.array(z.object({
-        id: z.string().optional(),
+        id: z.string(),
         productId: z.string(),
         portion: z.string(),
         portionType: z.string(),

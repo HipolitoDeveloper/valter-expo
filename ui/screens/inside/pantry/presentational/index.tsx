@@ -1,9 +1,10 @@
 import React from "react";
 import {Control} from "react-hook-form";
 import {Box} from "../../../../components/box";
-import {Button} from "../../../../components/button";
+import {Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText} from "../../../../components/button";
 import {Input, InputField} from "../../../../components/form/input";
 import {HStack} from "../../../../components/hstack";
+import {TrashIcon} from "../../../../components/icon";
 import PortionTypeSelector from "../../../../components/portion-type-selector/portion-type-selector";
 import Screen from "../../../../components/Screen";
 import AddProductsDrawer from "../../../../components/search-product/add-products-drawer";
@@ -19,20 +20,21 @@ type PantryPresentationalProps = {
     updatePantry: () => Promise<void>;
     hasModification: boolean;
     refreshPantry: () => void;
+    onRemove: (pantryItem: PantryItemsSchemaType['pantryItems'][number]) => void;
 }
 
 type PantryItemBoxProps = {
     control: Control<PantryItemsSchemaType>;
     index: number;
     pantryItem: PantryItemsSchemaType['pantryItems'][number];
-
-
+    onRemove: (pantryItem: PantryItemsSchemaType['pantryItems'][number]) => void;
 }
 
 const PantryItemBox = ({
                            control,
                            index,
-                           pantryItem
+                           pantryItem,
+                           onRemove
                        }: PantryItemBoxProps) => {
 
 
@@ -56,7 +58,15 @@ const PantryItemBox = ({
                     {pantryItem.name}
                 </Text>
             </VStack>
+            <VStack className={'w-1/3 h-full justify-center items-center'}>
+                <Button variant={'solid'}
+                        action={'negative'}
+                        testID={`remove-button-${pantryItem.id}`}
+                        onPress={() => onRemove(pantryItem)}>
+                    <ButtonIcon as={TrashIcon}/>
+                </Button>
 
+            </VStack>
         </HStack>
     )
 
@@ -68,7 +78,8 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
                                                                        pantryItems,
                                                                        updatePantry,
                                                                        hasModification,
-                                                                       refreshPantry
+                                                                       refreshPantry,
+                                                                       onRemove
                                                                    }) => {
 
 
@@ -85,7 +96,9 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
                         <PantryItemBox key={pantryItem.id}
                                        pantryItem={pantryItem}
                                        index={index}
-                                       control={control}/>
+                                       control={control}
+                                       onRemove={onRemove}
+                        />
                     ))}
                 </VStack>
 

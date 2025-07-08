@@ -5,7 +5,7 @@ import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
 import {logout} from "../../../../services/auth";
 import {findPantry, updatePantry} from "../../../../services/pantry";
-import {PantryItem} from "../../../../services/pantry/type";
+import {ITEM_STATE, PantryItem} from "../../../../services/pantry/type";
 import PantryPresentational from "./presentational";
 import {PantryItemsSchema, PantryItemsSchemaType} from "./schema";
 
@@ -13,13 +13,14 @@ const Pantry = () => {
     const {signOut, currentProfile} = useSession();
 
     const [loading, setLoading] = useState(false)
-    const {control, handleSubmit, formState: {isDirty}, reset} = useForm({
+    const {control, handleSubmit, formState: {isDirty, errors}, reset, watch} = useForm({
         resolver: zodResolver(PantryItemsSchema),
     })
 
     const {fields: pantryItems} = useFieldArray({
         control,
         name: "pantryItems",
+        keyName: "key",
     });
 
 
@@ -86,6 +87,18 @@ const Pantry = () => {
         }
     }
 
+    const removeProductFromPantry = async (pantryItem: PantryItemsSchemaType['pantryItems'][number]) => {
+        const removedPantryItem = {
+            ...pantryItem,
+            state: ITEM_STATE.REMOVED
+        }
+
+        const updatedPantry = {
+            pantryItems: pantryItems.map(item => item.id === pantryItem.id ? removedPantryItem : item)
+        }
+        await savePantry(updatedPantry)
+    }
+
     const doSomething = async () => {
         try {
             await logout()
@@ -112,6 +125,7 @@ const Pantry = () => {
                               pantryItems={pantryItems}
                               hasModification={isDirty}
                               refreshPantry={fetchPantryItems}
+                              onRemove={removeProductFromPantry}
         />
     )
 }

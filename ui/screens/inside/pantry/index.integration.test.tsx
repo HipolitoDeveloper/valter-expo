@@ -102,6 +102,47 @@ describe('Pantry', () => {
     //     await waitFor(() => expect(getByText('Macarrão')).toBeTruthy());
     // });
 
+    it('should remove an item when trash is pressed and call updatePantry', async () => {
+        const remainingItems = [ sampleItems[1] ];
+        (pantryService.updatePantry as jest.Mock).mockResolvedValue({ items: remainingItems });
+
+        const { getByText, getByTestId, queryByText } = render(<Pantry />);
+        await waitFor(() => expect(getByText('Arroz')).toBeTruthy());
+        await waitFor(() => expect(getByText('Feijão')).toBeTruthy());
+
+        fireEvent.press(getByTestId('remove-button-1'));
+
+        await waitFor(() => {
+            expect(pantryService.updatePantry).toHaveBeenCalledWith({
+                items: [
+                    {
+                        id: '1',
+                        name: 'Arroz',
+                        portion: 2,
+                        portionType: 'GRAMS',
+                        productId: 'p1',
+                        state: ITEM_STATE.REMOVED,
+                        validUntil: '2025-08-01',
+                    },
+                    {
+                        id: '2',
+                        name: 'Feijão',
+                        portion: 3.5,
+                        portionType: 'GRAMS',
+                        productId: 'p2',
+                        state: 'fresh',
+                        validUntil: '2025-07-20',
+                    },
+                ],
+            });
+        });
+
+        await waitFor(() => {
+            expect(queryByText('Arroz')).toBeNull();
+            expect(getByText('Feijão')).toBeTruthy();
+        });
+    });
+
     describe('ProductList integration', () => {
         beforeEach(() => {
             jest.clearAllMocks();
@@ -136,5 +177,7 @@ describe('Pantry', () => {
             });
 
         });
+
+
     });
 });
