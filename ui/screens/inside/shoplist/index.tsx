@@ -97,7 +97,7 @@ const Shoplist = () => {
         }
 
         const updatedShoplist = {
-            shoplistItems: shoplistItems.map(item => item.id === shoplistItem.id ? updatedShoplistItem : item)
+            shoplistItems: [updatedShoplistItem]
         }
         await saveShoplist(updatedShoplist)
     }

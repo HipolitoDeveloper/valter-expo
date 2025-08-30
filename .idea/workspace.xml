@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4e439a4-e9bd-4ed4-bcb3-ba7e04077f03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/services/enums.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/shoplist/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/shoplist/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/enum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/pantry/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/pantry/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/enums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/enums.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,39 +41,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Jest.Pantry.executor": "Run",
-    "Jest.Pantry.should add an item to the shoplist when addItemToCart button is pressed and call updatePantry.executor": "Run",
-    "Jest.Pantry.should call updatePantry immediately on select change.executor": "Run",
-    "Jest.Pantry.should remove an item when trash is pressed and call updatePantry.executor": "Run",
-    "Jest.Pantry.should throttle updatePantry on weight changes.executor": "Run",
-    "Jest.PortionTypeSelector.executor": "Run",
-    "Jest.ProductList.executor": "Run",
-    "Jest.ProfileProvider.executor": "Run",
-    "Jest.ProfileProvider.should fetch profile when authenticated and expose context values.executor": "Run",
-    "Jest.Shoplist.executor": "Run",
-    "Jest.Shoplist.should add an item to the pantry when addItemToCart button is pressed and call updateShoplist.executor": "Run",
-    "Jest.SignUp.executor": "Run",
-    "Jest.SignUp.handles HttpError during registration.executor": "Run",
-    "Jest.SignUp.handles unexpected error during registration.executor": "Run",
-    "Jest.SignUp.renders UI components: title, inputs, button.executor": "Run",
-    "Jest.SignUp.submits form and signs in on success.executor": "Run",
-    "Jest.transformValueIntoLabel().executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/ui/screens/inside/shoplist",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "/Users/hipolito/Projects/valter/valter-expo/node_modules/jest",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/hipolito/Projects/valter/valter-expo/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest.Pantry.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Pantry.should add an item to the shoplist when addItemToCart button is pressed and call updatePantry.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Pantry.should call updatePantry immediately on select change.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Pantry.should remove an item when trash is pressed and call updatePantry.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Pantry.should throttle updatePantry on weight changes.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.PortionTypeSelector.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ProductList.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ProfileProvider.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ProfileProvider.should fetch profile when authenticated and expose context values.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Shoplist.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Shoplist.should add an item to the pantry when addItemToCart button is pressed and call updateShoplist.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.SignUp.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.SignUp.handles HttpError during registration.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.SignUp.handles unexpected error during registration.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.SignUp.renders UI components: title, inputs, button.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.SignUp.submits form and signs in on success.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.transformValueIntoLabel().executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hipolito/Projects/valter/valter-expo/ui/screens/inside/shoplist&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/hipolito/Projects/valter/valter-expo/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/hipolito/Projects/valter/valter-expo/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ui/screens/inside/shoplist" />
@@ -99,7 +93,7 @@
       <recent name="$PROJECT_DIR$/services/enum.ts" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Pantry.should add an item to the shoplist when addItemToCart button is pressed and call updatePantry">
+  <component name="RunManager" selected="Jest.Pantry">
     <configuration name="Pantry" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
@@ -165,9 +159,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Pantry" />
         <item itemvalue="Jest.Pantry.should add an item to the shoplist when addItemToCart button is pressed and call updatePantry" />
         <item itemvalue="Jest.Shoplist.should add an item to the pantry when addItemToCart button is pressed and call updateShoplist" />
-        <item itemvalue="Jest.Pantry" />
         <item itemvalue="Jest.Shoplist" />
         <item itemvalue="Jest.Pantry.should throttle updatePantry on weight changes" />
       </list>
@@ -203,7 +197,13 @@
       <workItem from="1751421867082" duration="3049000" />
       <workItem from="1751586286763" duration="5353000" />
       <workItem from="1751591708726" duration="6467000" />
-      <workItem from="1751932319715" duration="8797000" />
+      <workItem from="1751932319715" duration="8947000" />
+      <workItem from="1751976094606" duration="58000" />
+      <workItem from="1753659979468" duration="4528000" />
+      <workItem from="1754444782656" duration="2321000" />
+      <workItem from="1754486733879" duration="175000" />
+      <workItem from="1755035830928" duration="1284000" />
+      <workItem from="1756509810640" duration="6446000" />
     </task>
     <servers />
   </component>

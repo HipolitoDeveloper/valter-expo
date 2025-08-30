@@ -18,8 +18,8 @@ type PantryPresentationalProps = {
     doSomething?: () => void;
     control: Control<PantryItemsSchemaType>
     pantryItems: PantryItemsSchemaType['pantryItems']
-    onPortionChange: () => void;
-    onPortionTypeChange: () => void;
+    onPortionChange: (pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id'] ) => void;
+    onPortionTypeChange: (pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id'] ) => void;
     hasModification: boolean;
     refreshPantry: () => void;
     updatePantryItemState: (pantryItem: PantryItemsSchemaType['pantryItems'][number], state: ItemState) => void;
@@ -104,7 +104,6 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
                                                                        doSomething,
                                                                        control,
                                                                        pantryItems,
-                                                                       hasModification,
                                                                        refreshPantry,
                                                                        updatePantryItemState,
                                                                        onPortionChange,
@@ -127,8 +126,8 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
                                        index={index}
                                        control={control}
                                        updatePantryItemState={updatePantryItemState}
-                                       onPortionTypeChange={onPortionTypeChange}
-                                       onPortionChange={onPortionChange}
+                                       onPortionTypeChange={() => onPortionTypeChange(pantryItem.id)}
+                                       onPortionChange={() => onPortionChange(pantryItem.id)}
                         />
                     ))}
                 </VStack>

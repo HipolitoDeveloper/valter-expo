@@ -4,7 +4,7 @@ import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
 import {logout} from "../../../../services/auth";
-import {ITEM_STATE, ItemState} from "../../../../services/enum";
+import {ITEM_STATE, ItemState} from "../../../../services/enums";
 import {findPantry, updatePantry} from "../../../../services/pantry";
 import {PantryItem} from "../../../../services/pantry/type";
 import PantryPresentational from "./presentational";
@@ -90,31 +90,35 @@ const Pantry = () => {
     }
 
     const updatePantryItemState = async (pantryItem: PantryItemsSchemaType['pantryItems'][number], state: ItemState) => {
-        const updatedPantryItem = {
-            ...pantryItem,
-            state: state
-        }
-
         const updatedPantry = {
-            pantryItems: pantryItems.map(item => item.id === pantryItem.id ? updatedPantryItem : item)
+            pantryItems: [{
+                ...pantryItem,
+                state: state
+            }]
         }
         await savePantry(updatedPantry)
     }
 
-    const onSubmit = handleSubmit(savePantry);
-
-    const throttledSubmit = useMemo(
+    const updatePantryItemPortion = useMemo(
         () =>
-            throttle(() => {
-                const current = getValues();
-                savePantry(current);
-            }, 2000, { leading: true, trailing: true }),
+            throttle((pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id']) => {
+                const pantryItem = getValues().pantryItems.find(item => item.id === pantryItemId) as PantryItemsSchemaType['pantryItems'][number];
+                const updatedPantry = {
+                    pantryItems: [{...pantryItem, state: ITEM_STATE.UPDATED}],
+
+                }
+                savePantry(updatedPantry);
+            }, 2000, {leading: true, trailing: true}),
         []
     );
 
-    const immediateSubmit = useCallback(() => {
-        onSubmit();
-    }, [onSubmit]);
+    const updatePantryItemPortionType = (pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id']) => {
+        const pantryItem = getValues().pantryItems.find(item => item.id === pantryItemId) as PantryItemsSchemaType['pantryItems'][number];
+        const updatedPantry = {
+            pantryItems: [{...pantryItem, state: ITEM_STATE.UPDATED}],
+        }
+        savePantry(updatedPantry);
+    };
 
 
     const doSomething = async () => {
@@ -140,8 +144,8 @@ const Pantry = () => {
         <PantryPresentational doSomething={doSomething}
                               control={control}
                               pantryItems={pantryItems}
-                              onPortionChange={throttledSubmit}
-                              onPortionTypeChange={immediateSubmit}
+                              onPortionChange={updatePantryItemPortion}
+                              onPortionTypeChange={updatePantryItemPortionType}
                               hasModification={isDirty}
                               refreshPantry={fetchPantryItems}
                               updatePantryItemState={updatePantryItemState}
