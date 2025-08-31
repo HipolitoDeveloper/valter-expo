@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 import {createInput} from '@gluestack-ui/input';
-import {Control, Controller} from "react-hook-form";
-import {RegisterOptions} from "react-hook-form/dist/types/validator";
+import {Control, Controller, RegisterOptions} from "react-hook-form";
 import {View, Pressable, TextInput} from 'react-native';
 import {tva} from '@gluestack-ui/nativewind-utils/tva';
 import {

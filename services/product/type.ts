@@ -1,7 +1,8 @@
 export const PORTION_TYPE = {
     GRAMS: 'GRAMS',
     UNITS: 'UNITS',
-    LITERS: 'LITERS'
+    LITERS: 'LITERS',
+    MILLILITERS: 'MILLILITERS'
 };;
 
 

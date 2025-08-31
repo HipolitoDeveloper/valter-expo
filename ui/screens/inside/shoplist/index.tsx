@@ -1,12 +1,14 @@
 import {zodResolver} from "@hookform/resolvers/zod";
-import {useCallback, useEffect, useMemo, useState} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
 import {logout} from "../../../../services/auth";
-import {ItemState} from "../../../../services/enums";
+import {ITEM_STATE, ItemState} from "../../../../services/enums";
 import {findShoplist, updateShoplist} from "../../../../services/shoplist";
 import {ShoplistItem} from "../../../../services/shoplist/type";
+import Screen from "../../../components/Screen";
+import {Toast, ToastDescription, ToastTitle, useToast} from "../../../components/toast";
 import ShoplistPresentational from "./presentational";
 import {ShoplistItemsSchema, ShoplistItemsSchemaType} from "./schema";
 import throttle from "lodash/throttle";
@@ -24,6 +26,45 @@ const Shoplist = () => {
         name: "shoplistItems",
         keyName: "key",
     });
+
+    const toast = useToast();
+    const [toastId, setToastId] = React.useState(0);
+
+    const showNewToast = (title: string, description: string, action: 'success' | 'warning' | 'error') => {
+        const newId = Math.random();
+        setToastId(newId);
+        toast.show({
+            id: `${newId}`,
+            placement: 'top',
+            duration: 1000,
+            render: ({id}) => {
+                const uniqueToastId = 'toast-' + id;
+                return (
+                    <Toast nativeID={uniqueToastId} action={action} variant="solid">
+                        <ToastTitle>{title}</ToastTitle>
+                        <ToastDescription>
+                            {description}
+                        </ToastDescription>
+                    </Toast>
+                );
+            },
+        });
+    };
+
+    const handleToast = (state: ItemState) => {
+        if (!toast.isActive(`${toastId}`)) {
+            switch (state) {
+                case ITEM_STATE.REMOVED:
+                    showNewToast('Poxa!', 'Item removido com sucesso', 'warning');
+
+                    break
+                case ITEM_STATE.PURCHASED:
+                    showNewToast('Aí sim!', 'Item comprado com sucesso', 'success');
+                    break
+            }
+
+        }
+    };
 
 
     const buildShoplistItems = (shoplistItems: ShoplistItem[]) => {
@@ -49,6 +90,7 @@ const Shoplist = () => {
                 shoplistItems: buildShoplistItems(shoplist.items)
             })
 
+
             setLoading(false)
         } catch (error) {
             if (error instanceof HttpError) {
@@ -60,8 +102,10 @@ const Shoplist = () => {
         }
     }, [reset, currentProfile]);
 
-    const saveShoplist = async (updatedShoplist: ShoplistItemsSchemaType) => {
-        setLoading(true)
+    const saveShoplist = async (updatedShoplist: ShoplistItemsSchemaType, handleLoading: boolean = true) => {
+        if (handleLoading) {
+            setLoading(true)
+        }
         try {
 
             const itemsToUpdate = updatedShoplist.shoplistItems.map(item => ({
@@ -78,7 +122,6 @@ const Shoplist = () => {
                 shoplistItems: buildShoplistItems(shoplist.items)
             })
 
-
             setLoading(false)
         } catch (error) {
             if (error instanceof HttpError) {
@@ -86,6 +129,10 @@ const Shoplist = () => {
             } else {
                 console.log("updateShoplistItems Error", error)
             }
+
+            showNewToast('Erro', 'Não foi possível salvar a lista de compras', 'error');
+            throw error;
+        } finally {
             setLoading(false)
         }
     }
@@ -100,22 +147,29 @@ const Shoplist = () => {
             shoplistItems: [updatedShoplistItem]
         }
         await saveShoplist(updatedShoplist)
+        handleToast(state);
     }
 
-    const onSubmit = handleSubmit(saveShoplist);
-
-    const throttledSubmit = useMemo(
+    const updateShoplistItemPortion = useMemo(
         () =>
-            throttle(() => {
-                const current = getValues();
-                saveShoplist(current);
-            }, 2000, { leading: true, trailing: true }),
+            throttle((pantryItemId: ShoplistItemsSchemaType['shoplistItems'][number]['id']) => {
+                const shoplistItem = getValues().shoplistItems.find(item => item.id === pantryItemId) as ShoplistItemsSchemaType['shoplistItems'][number];
+                const updatedShoplistItem = {
+                    shoplistItems: [{...shoplistItem, state: ITEM_STATE.UPDATED}],
+
+                }
+                saveShoplist(updatedShoplistItem, false);
+            }, 2000, {leading: true, trailing: true}),
         []
     );
 
-    const immediateSubmit = useCallback(() => {
-        onSubmit();
-    }, [onSubmit]);
+    const updateShoplisttemPortionType = (pantryItemId: ShoplistItemsSchemaType['shoplistItems'][number]['id']) => {
+        const shoplistItem = getValues().shoplistItems.find(item => item.id === pantryItemId) as ShoplistItemsSchemaType['shoplistItems'][number];
+        const updatedShoplistItem = {
+            shoplistItems: [{...shoplistItem, state: ITEM_STATE.UPDATED}],
+        }
+        saveShoplist(updatedShoplistItem);
+    };
 
 
     const doSomething = async () => {
@@ -138,14 +192,16 @@ const Shoplist = () => {
     }, [fetchShoplistItems, reset]);
 
     return (
-        <ShoplistPresentational doSomething={doSomething}
-                              control={control}
-                              shoplistItems={shoplistItems}
-                              onPortionChange={throttledSubmit}
-                              onPortionTypeChange={immediateSubmit}
-                              refreshShoplist={fetchShoplistItems}
-                              updateShoplistItemState={updateShoplistItemState}
-        />
+        <Screen className={'justify-between'} loading={loading}>
+            <ShoplistPresentational doSomething={doSomething}
+                                    control={control}
+                                    shoplistItems={shoplistItems}
+                                    onPortionChange={updateShoplistItemPortion}
+                                    onPortionTypeChange={updateShoplisttemPortionType}
+                                    refreshShoplist={fetchShoplistItems}
+                                    updateShoplistItemState={updateShoplistItemState}
+            />
+        </Screen>
     )
 }
 

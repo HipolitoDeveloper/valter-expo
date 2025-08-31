@@ -77,18 +77,10 @@ describe('Shoplist', () => {
                         portion: 2,
                         portionType: 'UNITS',
                         productId: 'p1',
-                        state: 'fresh',
+                        state: ITEM_STATE.UPDATED,
                         validUntil: '2025-08-01',
                     },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: 'fresh',
-                        validUntil: '2025-07-20',
-                    },
+
                 ],
             });
         });
@@ -118,18 +110,10 @@ describe('Shoplist', () => {
                         portion: 1,
                         portionType: 'GRAMS',
                         productId: 'p1',
-                        state: 'fresh',
+                        state: ITEM_STATE.UPDATED,
                         validUntil: '2025-08-01',
                     },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: 'fresh',
-                        validUntil: '2025-07-20',
-                    },
+
                 ],
             });
         });
@@ -157,15 +141,7 @@ describe('Shoplist', () => {
                         state: ITEM_STATE.REMOVED,
                         validUntil: '2025-08-01',
                     },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: 'fresh',
-                        validUntil: '2025-07-20',
-                    },
+
                 ],
             });
         });
@@ -198,15 +174,7 @@ describe('Shoplist', () => {
                         state: ITEM_STATE.PURCHASED,
                         validUntil: '2025-08-01',
                     },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: ITEM_STATE.IN_CART,
-                        validUntil: '2025-07-20',
-                    },
+
                 ],
             });
         });

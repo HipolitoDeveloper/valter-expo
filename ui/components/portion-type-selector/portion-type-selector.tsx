@@ -22,6 +22,8 @@ const portionTypes = [
     {value: PORTION_TYPE.GRAMS, label: 'gramas'},
     {value: PORTION_TYPE.LITERS, label: 'litros'},
     {value: PORTION_TYPE.UNITS, label: 'unidades'},
+    {value: PORTION_TYPE.MILLILITERS, label: 'mililitros'},
+
 ]
 
 export const transformValueIntoLabel = (value: string) => {

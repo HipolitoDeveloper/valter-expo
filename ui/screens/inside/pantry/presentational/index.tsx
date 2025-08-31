@@ -6,6 +6,7 @@ import {Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText} from "../../
 import {Input, InputField} from "../../../../components/form/input";
 import {HStack} from "../../../../components/hstack";
 import {AddIcon, TrashIcon} from "../../../../components/icon";
+import PortionInput from "../../../../components/portion-input/portion-input";
 import PortionTypeSelector from "../../../../components/portion-type-selector/portion-type-selector";
 import Screen from "../../../../components/Screen";
 import AddProductsDrawer from "../../../../components/search-product/add-products-drawer";
@@ -57,17 +58,21 @@ const PantryItemBox = ({
     return (
         <HStack className={'h-24 justify-between items-center '}>
 
-            <HStack className={'w-1/3 h-full justify-center items-center'}>
-                <Input variant={'underlined'}
-                       className={'w-10'}>
-                    <InputField name={FormKeys.pantryItemsPortion(index)}
-                                testID={`portion-input-${pantryItem.id}`}
-                                control={control}
-                                keyboardType="numeric"
-                                onValueChange={onPortionChange}
+            <HStack className={'w-2/6 h-full justify-start items-center'}>
+                <Button variant={'invisible'}
+                        action={'negative'}
+                        size={'sm'}
+                        testID={`remove-button-${pantryItem.id}`}
+                        onPress={() => removePantryItem(pantryItem)}>
+                    <ButtonIcon as={TrashIcon}/>
+                </Button>
 
-                    />
-                </Input>
+                <PortionInput
+                    name={FormKeys.pantryItemsPortion(index)}
+                    testId={`portion-input-${pantryItem.id}`}
+                    onPortionChange={onPortionChange}
+                    control={control}
+                />
                 <PortionTypeSelector
                     testID={`portion-type-selector-${pantryItem.id}`}
                     control={control}
@@ -76,20 +81,15 @@ const PantryItemBox = ({
 
                 />
             </HStack>
-            <VStack className={'w-1/3 h-full justify-center items-center'}>
+            <VStack className={'w-3/6 h-full justify-center items-start'}>
                 <Text size={'2xl'}>
                     {pantryItem.name}
                 </Text>
             </VStack>
-            <HStack className={'w-1/3 h-full justify-center items-center'} space={'md'}>
-                <Button variant={'solid'}
-                        action={'negative'}
-                        testID={`remove-button-${pantryItem.id}`}
-                        onPress={() => removePantryItem(pantryItem)}>
-                    <ButtonIcon as={TrashIcon}/>
-                </Button>
-                <Button variant={'outline'}
-                        action={'secondary'}
+            <HStack className={'w-1/6 h-full justify-end items-center'} space={'md'}>
+
+                <Button variant={'invisible'}
+                        action={'primary'}
                         testID={`add-to-cart-button-${pantryItem.id}`}
                         onPress={() => addPantryItemToCart(pantryItem)}>
                     <ButtonIcon as={AddIcon}/>
@@ -112,7 +112,7 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
 
 
     return (
-        <Screen className={'justify-between'}>
+        <>
             <Text onPress={doSomething}>Valter</Text>
 
             <VStack className={'w-full flex-1 '}>
@@ -143,7 +143,7 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
             {/*    </Box>*/}
             {/*)}*/}
 
-        </Screen>
+        </>
     );
 }
 

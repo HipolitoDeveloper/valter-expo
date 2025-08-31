@@ -1,5 +1,5 @@
 import {zodResolver} from "@hookform/resolvers/zod";
-import {useCallback, useEffect, useMemo, useState} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
@@ -7,6 +7,8 @@ import {logout} from "../../../../services/auth";
 import {ITEM_STATE, ItemState} from "../../../../services/enums";
 import {findPantry, updatePantry} from "../../../../services/pantry";
 import {PantryItem} from "../../../../services/pantry/type";
+import Screen from "../../../components/Screen";
+import {Toast, ToastDescription, ToastTitle, useToast} from "../../../components/toast";
 import PantryPresentational from "./presentational";
 import {PantryItemsSchema, PantryItemsSchemaType} from "./schema";
 import throttle from "lodash/throttle";
@@ -24,6 +26,45 @@ const Pantry = () => {
         name: "pantryItems",
         keyName: "key",
     });
+
+    const toast = useToast();
+    const [toastId, setToastId] = React.useState(0);
+
+    const showNewToast = (title: string, description: string, action: 'success' | 'warning' | 'error') => {
+        const newId = Math.random();
+        setToastId(newId);
+        toast.show({
+            id: `${newId}`,
+            placement: 'top',
+            duration: 1000,
+            render: ({id}) => {
+                const uniqueToastId = 'toast-' + id;
+                return (
+                    <Toast nativeID={uniqueToastId} action={action} variant="solid">
+                        <ToastTitle>{title}</ToastTitle>
+                        <ToastDescription>
+                            {description}
+                        </ToastDescription>
+                    </Toast>
+                );
+            },
+        });
+    };
+
+    const handleToast = (state: ItemState) => {
+        if (!toast.isActive(`${toastId}`)) {
+            switch (state) {
+                case ITEM_STATE.REMOVED:
+                    showNewToast('Poxa!', 'Item removido com sucesso', 'warning');
+
+                    break
+                case ITEM_STATE.IN_CART:
+                    showNewToast('Aí sim!', 'O item foi adcionado na sua lista de compras', 'success');
+                    break
+            }
+
+        }
+    };
 
 
     const buildPantryItems = (pantryItems: PantryItem[]) => {
@@ -60,8 +101,10 @@ const Pantry = () => {
         }
     }, [reset, currentProfile]);
 
-    const savePantry = async (updatedPantry: PantryItemsSchemaType) => {
-        setLoading(true)
+    const savePantry = async (updatedPantry: PantryItemsSchemaType, handleLoading: boolean = true) => {
+        if (handleLoading) {
+            setLoading(true)
+        }
         try {
 
             const itemsToUpdate = updatedPantry.pantryItems.map(item => ({
@@ -85,6 +128,10 @@ const Pantry = () => {
             } else {
                 console.log("updatePantryItems Error", error)
             }
+            showNewToast('Erro', 'Não foi possível salvar a despensa', 'error');
+
+            throw error
+        } finally {
             setLoading(false)
         }
     }
@@ -97,6 +144,7 @@ const Pantry = () => {
             }]
         }
         await savePantry(updatedPantry)
+        handleToast(state);
     }
 
     const updatePantryItemPortion = useMemo(
@@ -107,7 +155,7 @@ const Pantry = () => {
                     pantryItems: [{...pantryItem, state: ITEM_STATE.UPDATED}],
 
                 }
-                savePantry(updatedPantry);
+                savePantry(updatedPantry, false);
             }, 2000, {leading: true, trailing: true}),
         []
     );
@@ -141,15 +189,17 @@ const Pantry = () => {
     }, [fetchPantryItems, reset]);
 
     return (
-        <PantryPresentational doSomething={doSomething}
-                              control={control}
-                              pantryItems={pantryItems}
-                              onPortionChange={updatePantryItemPortion}
-                              onPortionTypeChange={updatePantryItemPortionType}
-                              hasModification={isDirty}
-                              refreshPantry={fetchPantryItems}
-                              updatePantryItemState={updatePantryItemState}
-        />
+        <Screen className={'justify-between'} loading={loading}>
+            <PantryPresentational doSomething={doSomething}
+                                  control={control}
+                                  pantryItems={pantryItems}
+                                  onPortionChange={updatePantryItemPortion}
+                                  onPortionTypeChange={updatePantryItemPortionType}
+                                  hasModification={isDirty}
+                                  refreshPantry={fetchPantryItems}
+                                  updatePantryItemState={updatePantryItemState}
+            />
+        </Screen>
     )
 }
 

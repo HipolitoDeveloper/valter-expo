@@ -2,6 +2,7 @@ import React from "react";
 import {View, type ViewProps} from "react-native";
 import {Box} from "./box";
 import {HStack, IHStackProps} from "./hstack";
+import {Spinner} from "./spinner";
 import {IVStackProps, VStack} from "./vstack";
 
 type ScreenProps = ViewProps & IHStackProps & IVStackProps & {
@@ -9,9 +10,10 @@ type ScreenProps = ViewProps & IHStackProps & IVStackProps & {
     lightColor?: string;
     darkColor?: string;
     direction?: 'row' | 'column';
+    loading: boolean;
 }
 
-const Screen: React.FC<ScreenProps> = ({children, style, lightColor, darkColor, direction, ...otherProps}) => {
+const Screen: React.FC<ScreenProps> = ({children, style, lightColor, darkColor, direction, loading, ...otherProps}) => {
     // const backgroundColor = useThemeColor({light: lightColor, dark: darkColor}, 'background');
     const backgroundColor = '#ffffff'; // Default to white if no colors provided
     let containerElement;
@@ -22,7 +24,7 @@ const Screen: React.FC<ScreenProps> = ({children, style, lightColor, darkColor, 
                 flex: 1,
                 alignItems: 'center',
                 justifyContent: 'flex-start',
-                width: '80%'
+                width: '100%'
             }, style]} {...otherProps} >{children}</HStack>;
             break;
         case 'column':
@@ -30,7 +32,7 @@ const Screen: React.FC<ScreenProps> = ({children, style, lightColor, darkColor, 
                 flex: 1,
                 alignItems: 'center',
                 justifyContent: 'flex-start',
-                width: '80%'
+                width: '100%'
             }, style]} {...otherProps} >{children}</VStack>;
             break;
         default:
@@ -38,14 +40,15 @@ const Screen: React.FC<ScreenProps> = ({children, style, lightColor, darkColor, 
                 flex: 1,
                 alignItems: 'center',
                 justifyContent: 'flex-start',
-                width: '80%'
+                width: '100%'
             }, style]} {...otherProps} >{children}</Box>;
             break;
     }
 
     return (
         <Box style={[{backgroundColor}, {flex: 1, alignItems: 'center', justifyContent: 'flex-start'}]}>
-            {containerElement}
+            {loading ? <Box className={'flex-1 items-center justify-center'}><Spinner size="large" color="green"/>
+            </Box> : containerElement}
         </Box>)
 
 }

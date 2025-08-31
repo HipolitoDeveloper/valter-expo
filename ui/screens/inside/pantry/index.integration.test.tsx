@@ -81,17 +81,8 @@ describe('Pantry', () => {
                         portion: 2,
                         portionType: 'UNITS',
                         productId: 'p1',
-                        state: ITEM_STATE.IN_PANTRY,
+                        state: ITEM_STATE.UPDATED,
                         validUntil: '2025-08-01',
-                    },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: ITEM_STATE.IN_PANTRY,
-                        validUntil: '2025-07-20',
                     },
                 ],
             });
@@ -122,18 +113,10 @@ describe('Pantry', () => {
                         portion: 1,
                         portionType: 'GRAMS',
                         productId: 'p1',
-                        state: ITEM_STATE.IN_PANTRY,
+                        state: ITEM_STATE.UPDATED,
                         validUntil: '2025-08-01',
                     },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: ITEM_STATE.IN_PANTRY,
-                        validUntil: '2025-07-20',
-                    },
+
                 ],
             });
         });
@@ -161,15 +144,7 @@ describe('Pantry', () => {
                         state: ITEM_STATE.REMOVED,
                         validUntil: '2025-08-01',
                     },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: ITEM_STATE.IN_PANTRY,
-                        validUntil: '2025-07-20',
-                    },
+
                 ],
             });
         });
@@ -201,15 +176,6 @@ describe('Pantry', () => {
                         productId: 'p1',
                         state: ITEM_STATE.IN_CART,
                         validUntil: '2025-08-01',
-                    },
-                    {
-                        id: '2',
-                        name: 'Feijão',
-                        portion: 3.5,
-                        portionType: 'GRAMS',
-                        productId: 'p2',
-                        state: ITEM_STATE.IN_PANTRY,
-                        validUntil: '2025-07-20',
                     },
                 ],
             });

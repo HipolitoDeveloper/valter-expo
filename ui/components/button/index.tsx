@@ -56,6 +56,8 @@ const buttonStyle = tva({
             outline:
                 'bg-transparent border data-[hover=true]:bg-background-50 data-[active=true]:bg-transparent',
             solid: '',
+            invisible: 'bg-transparent border-none shadow-none p-0 m-0 data-[hover=true]:bg-transparent data-[active=true]:bg-transparent',
+
         },
 
         size: {
@@ -223,9 +225,9 @@ const buttonIconStyle = tva({
                 'text-typography-500 data-[hover=true]:text-typography-600 data-[active=true]:text-typography-700',
             positive:
                 'text-success-600 data-[hover=true]:text-success-600 data-[active=true]:text-success-700',
-
             negative:
                 'text-error-600 data-[hover=true]:text-error-600 data-[active=true]:text-error-700',
+
         },
     },
     parentCompoundVariants: [
