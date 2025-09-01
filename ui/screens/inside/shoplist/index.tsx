@@ -75,7 +75,7 @@ const Shoplist = () => {
             portionType: item.portionType,
             productId: item.productId,
             state: item.state,
-            validUntil: item.validUntil
+            validForDays: item.validForDays
         }))
     }
 
@@ -115,7 +115,7 @@ const Shoplist = () => {
                 portionType: item.portionType,
                 productId: item.productId,
                 state: item.state,
-                validUntil: item.validUntil
+                validForDays: item.validForDays
             }))
             const shoplist = await updateShoplist({items: itemsToUpdate});
             reset({

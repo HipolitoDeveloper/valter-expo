@@ -121,7 +121,7 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
             portionType: product.defaultPortionType,
             portion: product.defaultPortion,
             state: itemState,
-            validUntil: product.validUntil,
+            validForDays: product.validForDays,
         })) as unknown as UpdatePantryBody | UpdateShoplistBody;
 
         try {

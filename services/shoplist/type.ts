@@ -25,7 +25,7 @@ export type FindShoplistResponse = {
         portionType: (typeof PORTION_TYPE)[keyof typeof PORTION_TYPE]
         state: ItemState
         name: string
-        validUntil?: string
+        validForDays?: number
     }[]
 }
 

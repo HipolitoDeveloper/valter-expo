@@ -24,17 +24,17 @@ const mockSignOut = jest.fn();
 const sampleItems: PantryItem[] = [
     {
         id: '1', name: 'Arroz', portion: 2, portionType: 'GRAMS',
-        productId: 'p1', state: ITEM_STATE.IN_PANTRY, validUntil: '2025-08-01',
+        productId: 'p1', state: ITEM_STATE.IN_PANTRY, validForDays: 0,
     },
     {
         id: '2', name: 'Feijão', portion: 3.5, portionType: 'GRAMS',
-        productId: 'p2', state: ITEM_STATE.IN_PANTRY, validUntil: '2025-07-20',
+        productId: 'p2', state: ITEM_STATE.IN_PANTRY, validForDays:0,
     },
 ];
 
 const sampleProducts: Product[] = [
-    { id: 'p1', name: 'Arroz', category: { id: 'categoryId', name: 'Grãos' }, defaultPortion: 1, defaultPortionType: 'GRAMS', validUntil: '2025-08-01' },
-    { id: 'p2', name: 'Feijão', category: { id: 'categoryId2', name: 'Feijões' }, defaultPortion: 2, defaultPortionType: 'GRAMS', validUntil: '2025-07-20' },
+    { id: 'p1', name: 'Arroz', category: { id: 'categoryId', name: 'Grãos' }, defaultPortion: 1, defaultPortionType: 'GRAMS', validForDays: 0 },
+    { id: 'p2', name: 'Feijão', category: { id: 'categoryId2', name: 'Feijões' }, defaultPortion: 2, defaultPortionType: 'GRAMS', validForDays:0 },
 ];
 
 
@@ -82,7 +82,7 @@ describe('Pantry', () => {
                         portionType: 'UNITS',
                         productId: 'p1',
                         state: ITEM_STATE.UPDATED,
-                        validUntil: '2025-08-01',
+                        validForDays: 0,
                     },
                 ],
             });
@@ -114,7 +114,7 @@ describe('Pantry', () => {
                         portionType: 'GRAMS',
                         productId: 'p1',
                         state: ITEM_STATE.UPDATED,
-                        validUntil: '2025-08-01',
+                        validForDays: 0,
                     },
 
                 ],
@@ -142,7 +142,7 @@ describe('Pantry', () => {
                         portionType: 'GRAMS',
                         productId: 'p1',
                         state: ITEM_STATE.REMOVED,
-                        validUntil: '2025-08-01',
+                        validForDays: 0,
                     },
 
                 ],
@@ -175,7 +175,7 @@ describe('Pantry', () => {
                         portionType: 'GRAMS',
                         productId: 'p1',
                         state: ITEM_STATE.IN_CART,
-                        validUntil: '2025-08-01',
+                        validForDays: 0,
                     },
                 ],
             });
@@ -216,7 +216,7 @@ describe('Pantry', () => {
 
             await waitFor(() => {
                 expect(pantryService.updatePantry).toHaveBeenCalledWith({ items: [
-                        { productId: 'p1', portionType: 'GRAMS', portion: 1, state: ITEM_STATE.IN_PANTRY, validUntil: '2025-08-01' }
+                        { productId: 'p1', portionType: 'GRAMS', portion: 1, state: ITEM_STATE.IN_PANTRY, validForDays: 0 }
                     ]});
                 expect(afterInsert).toHaveBeenCalled();
             });

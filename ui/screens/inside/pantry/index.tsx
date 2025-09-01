@@ -75,7 +75,7 @@ const Pantry = () => {
             portionType: item.portionType,
             productId: item.productId,
             state: item.state,
-            validUntil: item.validUntil
+            validForDays: item.validForDays
         }))
     }
 
@@ -114,7 +114,7 @@ const Pantry = () => {
                 portionType: item.portionType,
                 productId: item.productId,
                 state: item.state,
-                validUntil: item.validUntil
+                validForDays: item.validForDays
             }))
             const pantry = await updatePantry({items: itemsToUpdate});
             reset({

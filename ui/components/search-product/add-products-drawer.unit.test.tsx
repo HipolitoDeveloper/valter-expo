@@ -11,8 +11,8 @@ jest.mock('../../../services/product');
 jest.mock('../../../services/pantry');
 
 const sampleProducts: Product[] = [
-    { id: 'p1', name: 'Arroz', category: { id: 'categoryId', name: 'Grãos' }, defaultPortion: 1, defaultPortionType: 'GRAMS', validUntil: '2025-08-01' },
-    { id: 'p2', name: 'Feijão', category: { id: 'categoryId2', name: 'Feijões' }, defaultPortion: 2, defaultPortionType: 'GRAMS', validUntil: '2025-07-20' },
+    { id: 'p1', name: 'Arroz', category: { id: 'categoryId', name: 'Grãos' }, defaultPortion: 1, defaultPortionType: 'GRAMS', validForDays: 0 },
+    { id: 'p2', name: 'Feijão', category: { id: 'categoryId2', name: 'Feijões' }, defaultPortion: 2, defaultPortionType: 'GRAMS', validForDays: 0 },
 ];
 
 describe('ProductList', () => {
@@ -65,8 +65,8 @@ describe('ProductList', () => {
 
         await waitFor(() => {
             expect(pantryService.updatePantry).toHaveBeenCalledWith({ items: [
-                    { productId: 'p1', portionType: 'GRAMS', portion: 1, state: ITEM_STATE.IN_PANTRY, validUntil: '2025-08-01' },
-                    { productId: 'p2', portionType: 'GRAMS', portion: 2, state: ITEM_STATE.IN_PANTRY, validUntil: '2025-07-20' },
+                    { productId: 'p1', portionType: 'GRAMS', portion: 1, state: ITEM_STATE.IN_PANTRY, validForDays: 0 },
+                    { productId: 'p2', portionType: 'GRAMS', portion: 2, state: ITEM_STATE.IN_PANTRY, validForDays: 0 },
                 ] });
             expect(afterInsert).toHaveBeenCalled();
         });

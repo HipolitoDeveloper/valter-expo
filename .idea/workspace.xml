@@ -5,23 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4e439a4-e9bd-4ed4-bcb3-ba7e04077f03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ui/components/portion-input/portion-input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/components/portion-input/portion-input.unit.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/pantry/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/pantry/type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/Screen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/button/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/form/input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/form/input/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/select/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/select/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/shoplist/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/shoplist/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/schema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/schema.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +217,7 @@
       <workItem from="1754444782656" duration="2321000" />
       <workItem from="1754486733879" duration="175000" />
       <workItem from="1755035830928" duration="1284000" />
-      <workItem from="1756509810640" duration="19818000" />
+      <workItem from="1756509810640" duration="22648000" />
     </task>
     <servers />
   </component>

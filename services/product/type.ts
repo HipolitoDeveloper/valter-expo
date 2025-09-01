@@ -19,7 +19,7 @@ export type FindAllProductResponse = {
             "id": string,
             "name": string
         },
-        validUntil: string,
+        validForDays: number,
         defaultPortion: number,
         defaultPortionType: (typeof PORTION_TYPE)[keyof typeof PORTION_TYPE]
     }[],

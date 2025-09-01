@@ -6,7 +6,7 @@ export const PantryItemsSchema = z.object({
         productId: z.string(),
         portion: z.string(),
         portionType: z.string(),
-        validUntil: z.string(),
+        validForDays: z.number(),
         state: z.string(),
         name: z.string()
     })),

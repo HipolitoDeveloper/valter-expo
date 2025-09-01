@@ -25,7 +25,7 @@ export type FindPantryResponse = {
         portion: number;
         portionType: (typeof PORTION_TYPE)[keyof typeof PORTION_TYPE]
         state: (typeof ITEM_STATE)[keyof typeof ITEM_STATE]
-        validUntil: string,
+        validForDays: number,
         name: string
     }[]
 }

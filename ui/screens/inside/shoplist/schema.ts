@@ -8,7 +8,7 @@ export const ShoplistItemsSchema = z.object({
         portionType: z.string(),
         state: z.string(),
         name: z.string(),
-        validUntil: z.string().optional(),
+        validForDays: z.number().optional(),
     })),
 
 })
