@@ -1,9 +1,11 @@
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useRouter} from "expo-router";
+import {useState} from "react";
 import {useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
 import {login, register} from "../../../../services/auth";
+import Screen from "../../../components/Screen";
 
 import SignupPresentational from "./presentational";
 import {SignUpFormSchema, SignUpFormSchemaType} from "./schema";
@@ -22,9 +24,11 @@ const SignUp = () => {
     });
     const {signIn} = useSession()
     const router = useRouter();
+    const [loading, setLoading] = useState(false)
+
 
     const doSignUp = async (formData: SignUpFormSchemaType) => {
-
+        setLoading(true)
         try {
             const accessData = await register({
                 firstName: formData.firstName,
@@ -47,15 +51,18 @@ const SignUp = () => {
             } else {
                 console.log("doSignUp Error", error)
             }
+        } finally {
+            setLoading(false)
         }
     }
 
     return (
-        <SignupPresentational
-            control={control}
-            handleSubmit={handleSubmit(doSignUp)}
-        />
-
+        <Screen direction={'column'} space={"md"} loading={loading}>
+            <SignupPresentational
+                control={control}
+                handleSubmit={handleSubmit(doSignUp)}
+            />
+        </Screen>
     )
 }
 

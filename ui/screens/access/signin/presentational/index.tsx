@@ -21,8 +21,8 @@ const SigninPresentational: React.FC<SigninPresentationalProps> = ({
                                                                    }) => {
 
     return (
-        <Screen direction={'column'} space={"md"}>
-            <Box style={{flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}>
+        <>
+        <Box style={{flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}>
                 <Text>Valter</Text>
             </Box>
             <VStack space='md' style={{
@@ -45,6 +45,7 @@ const SigninPresentational: React.FC<SigninPresentationalProps> = ({
                         placeholder={'Senha'}
                         name={FormKeys.password}
                         control={control}
+                        secureTextEntry={true}
                     />
                 </Input>
                 <Text information>Esqueceu sua senha? clique aqui</Text>
@@ -61,7 +62,7 @@ const SigninPresentational: React.FC<SigninPresentationalProps> = ({
                 </Link>
 
             </VStack>
-        </Screen>
+        </>
 
     )
 }

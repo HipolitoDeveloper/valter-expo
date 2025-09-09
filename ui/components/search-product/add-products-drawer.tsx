@@ -21,6 +21,7 @@ import {Fab, FabIcon, FabLabel} from "../fab";
 import {HStack} from "../hstack";
 import {AddIcon} from "../icon";
 import {Pressable} from "../pressable";
+import {Spinner} from "../spinner";
 import {Text} from "../text";
 import {VStack} from "../vstack";
 import OpenButton from "./open-button";
@@ -125,8 +126,6 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
         })) as unknown as UpdatePantryBody | UpdateShoplistBody;
 
         try {
-            setLoading(false)
-
             await updateMethod(items)
             closeDrawer()
         } catch (error) {
@@ -135,6 +134,7 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
             } else {
                 console.log("findAllProducts Error", error)
             }
+        } finally {
             setLoading(false)
         }
     }
@@ -173,7 +173,8 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
                 </DrawerHeader>
                 <DrawerBody>
                     <VStack className={'flex-1'} space={'xl'}>
-                        {products.map((product) => (
+                        {loading ? <Spinner size="large" color="green"/> :
+                        products.map((product) => (
                             <ProductBox
                                 key={product.id}
                                 onPress={() => selectProduct(product)}

@@ -103,9 +103,7 @@ const Shoplist = () => {
     }, [reset, currentProfile]);
 
     const saveShoplist = async (updatedShoplist: ShoplistItemsSchemaType, handleLoading: boolean = true) => {
-        if (handleLoading) {
             setLoading(true)
-        }
         try {
 
             const itemsToUpdate = updatedShoplist.shoplistItems.map(item => ({

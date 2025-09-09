@@ -9,7 +9,8 @@
     "ios": "DARK_MODE=media expo start --ios",
     "web": "DARK_MODE=media expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "generate:apk": "eas build -p android --profile preview"
   },
   "dependencies": {
     "@expo/html-elements": "^0.4.2",

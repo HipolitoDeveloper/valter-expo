@@ -102,9 +102,7 @@ const Pantry = () => {
     }, [reset, currentProfile]);
 
     const savePantry = async (updatedPantry: PantryItemsSchemaType, handleLoading: boolean = true) => {
-        if (handleLoading) {
             setLoading(true)
-        }
         try {
 
             const itemsToUpdate = updatedPantry.pantryItems.map(item => ({
