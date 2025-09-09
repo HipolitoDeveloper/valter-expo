@@ -6,10 +6,10 @@ import {Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText} from "../../
 import {Input, InputField} from "../../../../components/form/input";
 import {HStack} from "../../../../components/hstack";
 import {AddIcon, TrashIcon} from "../../../../components/icon";
-import PortionInput from "../../../../components/portion-input/portion-input";
-import PortionTypeSelector from "../../../../components/portion-type-selector/portion-type-selector";
+import PortionInput from "../../../../components/products-list/portion-input/portion-input";
+import PortionTypeSelector from "../../../../components/products-list/portion-type-selector/portion-type-selector";
 import Screen from "../../../../components/Screen";
-import AddProductsDrawer from "../../../../components/search-product/add-products-drawer";
+import AddProductsDrawer from "../../../../components/products-list/search-product/add-products-drawer";
 import {Text} from "../../../../components/text";
 import {VStack} from "../../../../components/vstack";
 import {FormKeys} from "../enum";

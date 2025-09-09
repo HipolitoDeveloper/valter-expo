@@ -15,15 +15,30 @@ export type FindAllProductResponse = {
     data: {
         "id": string,
         "name": string,
-        "category": {
+        "category"?: {
             "id": string,
             "name": string
         },
-        validForDays: number,
-        defaultPortion: number,
-        defaultPortionType: (typeof PORTION_TYPE)[keyof typeof PORTION_TYPE]
+        validForDays?: number,
+        defaultPortion?: number,
+        defaultPortionType?: (typeof PORTION_TYPE)[keyof typeof PORTION_TYPE]
     }[],
     totalCount: number
 }
+
+export type FindAllRecommendedProductParams = {
+
+}
+
+export type FindAllRecommendedProductResponse = {
+    data: {
+        "id": string,
+        "name": string,
+        validForDays?: number,
+        defaultPortion?: number,
+        defaultPortionType?: (typeof PORTION_TYPE)[keyof typeof PORTION_TYPE]
+    }[],
+}
+
 
 export type Product = FindAllProductResponse['data'][number];

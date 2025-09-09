@@ -3,7 +3,7 @@ import {render, fireEvent, waitFor} from '@testing-library/react-native';
 import {ITEM_STATE} from "../../../../services/enums";
 import {ShoplistItem} from "../../../../services/shoplist/type";
 import {Product} from "../../../../services/product/type";
-import ProductList from "../../../components/search-product/add-products-drawer";
+import ProductList from "../../../components/products-list/search-product/add-products-drawer";
 import Shoplist from './index';
 import * as shoplistService from '../../../../services/shoplist';
 import * as productService from '../../../../services/product';

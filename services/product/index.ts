@@ -1,6 +1,11 @@
 import request from "../../common/api/request";
 import {LoginParams, LoginResponse} from "../auth/type";
-import {FindAllProductParams, FindAllProductResponse} from "./type";
+import {
+    FindAllProductParams,
+    FindAllProductResponse,
+    FindAllRecommendedProductParams,
+    FindAllRecommendedProductResponse
+} from "./type";
 
 const rootPath = '/product';
 
@@ -12,6 +17,18 @@ export const findAllProducts = async ({limit, page}: FindAllProductParams): Prom
             params: {
                 page,
                 limit
+            }
+        });
+        return response.data;
+    } catch (err) {
+        return Promise.reject(err);
+    }
+};
+
+export const findAllRecommendedProducts = async (): Promise<FindAllRecommendedProductResponse> => {
+    try {
+        const response = await request.get(pathBuilder('/recommended'), {
+            params: {
             }
         });
         return response.data;

@@ -1,6 +1,6 @@
 import React from "react";
 import {Control, Controller} from "react-hook-form";
-import {PORTION_TYPE} from "../../../services/product/type";
+import {PORTION_TYPE} from "../../../../services/product/type";
 import {
     Select,
     SelectBackdrop,
@@ -9,7 +9,7 @@ import {
     SelectInput, SelectItem,
     SelectPortal,
     SelectTrigger
-} from "../select";
+} from "../../select";
 
 type PortionTypeSelectorProps = {
     control: Control<any>;

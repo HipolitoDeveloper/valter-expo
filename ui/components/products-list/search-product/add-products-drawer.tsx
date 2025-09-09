@@ -1,13 +1,13 @@
 import React, {useCallback, useEffect, useState} from "react";
-import HttpError from "../../../common/errors/http-error";
-import {me} from "../../../services/auth";
-import {ITEM_STATE} from "../../../services/enums";
-import {updatePantry} from "../../../services/pantry";
-import {PantryItem, UpdatePantryBody} from "../../../services/pantry/type";
-import {findAllProducts} from "../../../services/product";
-import {PORTION_TYPE, Product} from "../../../services/product/type";
-import {updateShoplist} from "../../../services/shoplist";
-import {UpdateShoplistBody} from "../../../services/shoplist/type";
+import HttpError from "../../../../common/errors/http-error";
+import {me} from "../../../../services/auth";
+import {ITEM_STATE} from "../../../../services/enums";
+import {updatePantry} from "../../../../services/pantry";
+import {PantryItem, UpdatePantryBody} from "../../../../services/pantry/type";
+import {findAllProducts} from "../../../../services/product";
+import {PORTION_TYPE, Product} from "../../../../services/product/type";
+import {updateShoplist} from "../../../../services/shoplist";
+import {UpdateShoplistBody} from "../../../../services/shoplist/type";
 import {
     Drawer,
     DrawerBackdrop,
@@ -16,51 +16,25 @@ import {
     DrawerContent,
     DrawerFooter,
     DrawerHeader
-} from "../drawer";
-import {Fab, FabIcon, FabLabel} from "../fab";
-import {HStack} from "../hstack";
-import {AddIcon} from "../icon";
-import {Pressable} from "../pressable";
-import {Spinner} from "../spinner";
-import {Text} from "../text";
-import {VStack} from "../vstack";
+} from "../../drawer";
+import {Fab, FabIcon, FabLabel} from "../../fab";
+import {HStack} from "../../hstack";
+import {AddIcon} from "../../icon";
+import {Pressable} from "../../pressable";
+import {Spinner} from "../../spinner";
+import {Text} from "../../text";
+import {VStack} from "../../vstack";
+import ProductBox from "../product-box";
+import {SelectedProduct} from "../type";
 import OpenButton from "./open-button";
 
-type SelectedProduct = { selected: boolean } & Product
 
 type ProductListProps = {
     variant: 'pantry' | 'shoplist';
     afterInsert?: () => void;
 }
 
-type ProductBoxProps = {
-    product: SelectedProduct;
-    onPress: (product: SelectedProduct) => void;
-}
-const ProductBox: React.FC<ProductBoxProps> = ({
-                                                   product,
-                                                   onPress
-                                               }) => {
 
-    return (
-        <Pressable
-            onPress={() => onPress(product)}
-        >
-            {({pressed}) => (
-                <HStack
-                    className={`w-full h-20 border bg-white border-gray-200 items-center justify-between px-4 ${product.selected && 'bg-primary-200'} ${pressed && 'bg-gray-200'}`}>
-                    <VStack className={'flex-1'}>
-                        <Text size={'xl'}>{product.name}</Text>
-                        <Text>{product.category.name}</Text>
-                    </VStack>
-
-                </HStack>
-            )}
-
-        </Pressable>
-    )
-
-}
 
 const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
     const [visible, setVisible] = useState(false)

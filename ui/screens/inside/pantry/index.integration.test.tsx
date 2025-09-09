@@ -4,7 +4,7 @@ import {ITEM_STATE} from "../../../../services/enums";
 import {PantryItem} from "../../../../services/pantry/type";
 import {Product} from "../../../../services/product/type";
 import * as shoplistService from "../../../../services/shoplist";
-import ProductList from "../../../components/search-product/add-products-drawer";
+import ProductList from "../../../components/products-list/search-product/add-products-drawer";
 import Shoplist from "../shoplist";
 import Pantry from './index';
 import * as pantryService from '../../../../services/pantry';

@@ -1,14 +1,14 @@
 import React from 'react';
 import {render, fireEvent, waitFor} from '@testing-library/react-native';
-import {ITEM_STATE} from "../../../services/enum";
-import * as productService from '../../../services/product';
-import * as pantryService from '../../../services/pantry';
-import type {Product} from '../../../services/product/type';
+import {ITEM_STATE} from "../../../../services/enums";
+import * as productService from '../../../../services/product';
+import * as pantryService from '../../../../services/pantry';
+import type {Product} from '../../../../services/product/type';
 import ProductList from "./add-products-drawer";
 
 
-jest.mock('../../../services/product');
-jest.mock('../../../services/pantry');
+jest.mock('../../../../services/product');
+jest.mock('../../../../services/pantry');
 
 const sampleProducts: Product[] = [
     { id: 'p1', name: 'Arroz', category: { id: 'categoryId', name: 'Grãos' }, defaultPortion: 1, defaultPortionType: 'GRAMS', validForDays: 0 },

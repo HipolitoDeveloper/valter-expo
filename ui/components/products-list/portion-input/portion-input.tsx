@@ -1,7 +1,7 @@
 import React from "react";
 import {Control} from "react-hook-form";
-import {FormKeys} from "../../screens/inside/shoplist/enum";
-import {Input, InputField} from "../form/input";
+import {FormKeys} from "../../../screens/inside/shoplist/enum";
+import {Input, InputField} from "../../form/input";
 
 type PortionInputProps = {
     name: string;

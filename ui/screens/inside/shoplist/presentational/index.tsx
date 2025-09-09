@@ -6,10 +6,12 @@ import {Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText} from "../../
 import {Input, InputField} from "../../../../components/form/input";
 import {HStack} from "../../../../components/hstack";
 import {AddIcon, CheckCircleIcon, TrashIcon} from "../../../../components/icon";
-import PortionInput from "../../../../components/portion-input/portion-input";
-import PortionTypeSelector from "../../../../components/portion-type-selector/portion-type-selector";
+import PortionInput from "../../../../components/products-list/portion-input/portion-input";
+import PortionTypeSelector from "../../../../components/products-list/portion-type-selector/portion-type-selector";
+import RecommendedProductsSection
+    from "../../../../components/products-list/recommended-products-section/recommended-products-section";
 import Screen from "../../../../components/Screen";
-import AddProductsDrawer from "../../../../components/search-product/add-products-drawer";
+import AddProductsDrawer from "../../../../components/products-list/search-product/add-products-drawer";
 import {Text} from "../../../../components/text";
 import {Toast, ToastDescription, ToastTitle, useToast} from "../../../../components/toast";
 import {VStack} from "../../../../components/vstack";
@@ -116,11 +118,17 @@ const ShoplistPresentational: React.FC<ShoplistPresentationalProps> = ({
         <>
             <Text onPress={doSomething}>Valter</Text>
 
-            <VStack className={'w-full flex-1'}>
-                <Text size={'xl'} bold>Lista de Compras</Text>
-                <AddProductsDrawer variant={'shoplist'} afterInsert={refreshShoplist}/>
+            <VStack className={'w-full h-full'}>
+                <Box className={'flex-[0.5]'}>
+                    <Text size={'xl'} bold>Lista de Compras</Text>
+                </Box>
+                <Box className={'flex-[0.5]'}>
+                    <AddProductsDrawer variant={'shoplist'} afterInsert={refreshShoplist}/>
+                </Box>
+                <RecommendedProductsSection className={'flex-[0.5]'}  afterInsert={refreshShoplist}/>
 
-                <VStack space={'xl'}>
+                <VStack space={'xl'} className={'flex-[10]'}>
+
                     {shoplistItems.map((shoplistItem, index) => (
                         <ShoplistItemBox key={shoplistItem.id}
                                          shoplistItem={shoplistItem}
