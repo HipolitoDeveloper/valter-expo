@@ -9,6 +9,7 @@ export const PORTION_TYPE = {
 export type FindAllProductParams = {
     limit: number;
     page: number;
+    search: string;
 }
 
 export type FindAllProductResponse = {

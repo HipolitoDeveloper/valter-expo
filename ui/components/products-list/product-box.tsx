@@ -12,17 +12,20 @@ type ProductBoxProps = {
     productNameTextSize?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "2xs" | "5xl" | "6xl" | undefined;
     className?: string;
     height?: string;
+    testID?: string;
 }
 const ProductBox: React.FC<ProductBoxProps> = ({
                                                    product,
                                                    onPress,
                                                    productNameTextSize = 'xl',
                                                    className,
-                                                   height = 'h-20'
+                                                   height = 'h-20',
+                                                   testID
                                                }) => {
 
     return (
         <Pressable
+            testID={testID}
             onPress={() => onPress(product)}
         >
             {({pressed}) => (

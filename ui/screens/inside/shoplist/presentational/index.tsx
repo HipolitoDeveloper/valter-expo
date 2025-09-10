@@ -58,7 +58,7 @@ const ShoplistItemBox = ({
 
 
     return (
-        <HStack className={'h-24 justify-between items-center'}>
+        <HStack className={'h-16 justify-between items-center'}>
             <HStack className={'w-2/6 h-full justify-start items-center'}>
                 <Button variant={'invisible'}
                         action={'negative'}
@@ -82,7 +82,7 @@ const ShoplistItemBox = ({
                 />
             </HStack>
             <VStack className={'w-3/6 h-full justify-center items-start'}>
-                <Text size={'2xl'}>
+                <Text size={'xl'}>
                     {shoplistItem.name}
                 </Text>
             </VStack>
@@ -116,40 +116,37 @@ const ShoplistPresentational: React.FC<ShoplistPresentationalProps> = ({
 
     return (
         <>
-            <Text onPress={doSomething}>Valter</Text>
 
-            <VStack className={'w-full h-full'}>
-                <Box className={'flex-[0.5]'}>
-                    <Text size={'xl'} bold>Lista de Compras</Text>
-                </Box>
-                <Box className={'flex-[0.5]'}>
+            <VStack className={'w-full h-full '}>
+                <Box className={'flex-[1]'}>
                     <AddProductsDrawer variant={'shoplist'} afterInsert={refreshShoplist}/>
                 </Box>
-                <RecommendedProductsSection className={'flex-[0.5]'}  afterInsert={refreshShoplist}/>
+                <VStack className={'w-full flex-[10] bg-white p-2 rounded-tl-3xl rounded-tr-3xl'}>
+                    <RecommendedProductsSection className={'flex-[0.5]'} afterInsert={refreshShoplist}/>
 
-                <VStack space={'xl'} className={'flex-[10]'}>
-
-                    {shoplistItems.map((shoplistItem, index) => (
-                        <ShoplistItemBox key={shoplistItem.id}
-                                         shoplistItem={shoplistItem}
-                                         index={index}
-                                         control={control}
-                                         updateShoplistItemState={updateItemState}
-                                         onPortionTypeChange={() => onPortionTypeChange(shoplistItem.id)}
-                                         onPortionChange={() => onPortionChange(shoplistItem.id)}
-                        />
-                    ))}
+                    <VStack space={'md'} className={'flex-[9.5]'}>
+                        {shoplistItems?.length !== 0 ? (
+                            shoplistItems.map((shoplistItem, index) => (
+                                <ShoplistItemBox key={shoplistItem.id}
+                                                 shoplistItem={shoplistItem}
+                                                 index={index}
+                                                 control={control}
+                                                 updateShoplistItemState={updateItemState}
+                                                 onPortionTypeChange={() => onPortionTypeChange(shoplistItem.id)}
+                                                 onPortionChange={() => onPortionChange(shoplistItem.id)}
+                                />
+                            ))) : (
+                            <VStack className={'flex-1 justify-center '}>
+                                <Text size={'lg'} className={'font-black text-center'}>
+                                    Sua lista de compras está vazia. Adicione produtos para começar!
+                                </Text>
+                            </VStack>
+                        )}
+                    </VStack>
                 </VStack>
 
-
             </VStack>
-            {/*{hasModification && (*/}
-            {/*    <Box className={'w-full'}>*/}
-            {/*        <Button onPress={updateShoplist}>*/}
-            {/*            <Text>Salvar Despensa</Text>*/}
-            {/*        </Button>*/}
-            {/*    </Box>*/}
-            {/*)}*/}
+
         </>
     );
 }

@@ -1,4 +1,5 @@
 import {zodResolver} from "@hookform/resolvers/zod";
+import {debounce} from "lodash";
 import React, {useCallback, useEffect, useMemo, useState} from "react";
 import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
@@ -9,6 +10,7 @@ import {findPantry, updatePantry} from "../../../../services/pantry";
 import {PantryItem} from "../../../../services/pantry/type";
 import Screen from "../../../components/Screen";
 import {Toast, ToastDescription, ToastTitle, useToast} from "../../../components/toast";
+import {ShoplistItemsSchemaType} from "../shoplist/schema";
 import PantryPresentational from "./presentational";
 import {PantryItemsSchema, PantryItemsSchemaType} from "./schema";
 import throttle from "lodash/throttle";
@@ -102,7 +104,7 @@ const Pantry = () => {
     }, [reset, currentProfile]);
 
     const savePantry = async (updatedPantry: PantryItemsSchemaType, handleLoading: boolean = true) => {
-            setLoading(true)
+        setLoading(true)
         try {
 
             const itemsToUpdate = updatedPantry.pantryItems.map(item => ({
@@ -147,14 +149,13 @@ const Pantry = () => {
 
     const updatePantryItemPortion = useMemo(
         () =>
-            throttle((pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id']) => {
+            debounce((pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id']) => {
                 const pantryItem = getValues().pantryItems.find(item => item.id === pantryItemId) as PantryItemsSchemaType['pantryItems'][number];
                 const updatedPantry = {
                     pantryItems: [{...pantryItem, state: ITEM_STATE.UPDATED}],
-
-                }
+                };
                 savePantry(updatedPantry, false);
-            }, 2000, {leading: true, trailing: true}),
+            }, 600),
         []
     );
 
@@ -187,7 +188,7 @@ const Pantry = () => {
     }, [fetchPantryItems, reset]);
 
     return (
-        <Screen className={'justify-between'} loading={loading}>
+        <Screen className={'justify-between'} backgroundColor={'rgb(246 246 246)'} loading={loading}>
             <PantryPresentational doSomething={doSomething}
                                   control={control}
                                   pantryItems={pantryItems}

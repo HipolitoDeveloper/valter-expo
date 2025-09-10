@@ -11,12 +11,13 @@ const rootPath = '/product';
 
 const pathBuilder = (path: string) => `${rootPath}${path}`;
 
-export const findAllProducts = async ({limit, page}: FindAllProductParams): Promise<FindAllProductResponse> => {
+export const findAllProducts = async ({limit, page, search}: FindAllProductParams): Promise<FindAllProductResponse> => {
     try {
         const response = await request.get(pathBuilder(''), {
             params: {
                 page,
-                limit
+                limit,
+                search
             }
         });
         return response.data;

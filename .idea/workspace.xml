@@ -5,23 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4e439a4-e9bd-4ed4-bcb3-ba7e04077f03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ui/components/products-list/product-box.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/components/products-list/recommended-products-section/recommended-products-section.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/components/products-list/recommended-products-section/recommended-products-section.unit.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/components/products-list/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/open-trigger.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/portion-input/portion-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/portion-input/portion-input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/portion-input/portion-input.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/portion-input/portion-input.unit.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/portion-type-selector/portion-type-selector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/portion-type-selector/portion-type-selector.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/portion-type-selector/portion-type-selector.unit.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/search-product/add-products-drawer.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.unit.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/search-product/open-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/open-button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/Screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/form/input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/form/input/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/products-list/product-box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/product-box.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/products-list/recommended-products-section/recommended-products-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/recommended-products-section/recommended-products-section.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.unit.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/components/products-list/search-product/open-button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/providers/session/provider.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/session/provider.unit.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +63,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Jest.Pantry.ProductList integration.executor": "Run",
     "Jest.Pantry.executor": "Run",
     "Jest.Pantry.should add an item to the shoplist when addItemToCart button is pressed and call updatePantry.executor": "Run",
     "Jest.Pantry.should call updatePantry immediately on select change.executor": "Run",
@@ -74,8 +75,12 @@
     "Jest.ProfileProvider.executor": "Run",
     "Jest.ProfileProvider.should fetch profile when authenticated and expose context values.executor": "Run",
     "Jest.RecommendedProductsSection.executor": "Run",
+    "Jest.SessionProvider.executor": "Run",
+    "Jest.Shoplist.ProductList integration.executor": "Run",
+    "Jest.Shoplist.RecommendedProductsSection integration inside Shoplist.executor": "Run",
     "Jest.Shoplist.executor": "Run",
     "Jest.Shoplist.should add an item to the pantry when addItemToCart button is pressed and call updateShoplist.executor": "Run",
+    "Jest.Shoplist.should throttle updateShoplist on weight changes.executor": "Run",
     "Jest.SignUp.executor": "Run",
     "Jest.SignUp.handles HttpError during registration.executor": "Run",
     "Jest.SignUp.handles unexpected error during registration.executor": "Run",
@@ -115,7 +120,7 @@
       <recent name="$PROJECT_DIR$/services/enum.ts" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.RecommendedProductsSection">
+  <component name="RunManager" selected="Jest.SessionProvider">
     <configuration name="Pantry" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
@@ -128,44 +133,44 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Pantry.should add an item to the shoplist when addItemToCart button is pressed and call updatePantry" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Pantry.ProductList integration" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST" />
+      <scope-kind value="SUITE" />
       <test-file value="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" />
       <test-names>
         <test-name value="Pantry" />
-        <test-name value="should add an item to the shoplist when addItemToCart button is pressed and call updatePantry" />
+        <test-name value="ProductList integration" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="PortionInput" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductList" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/ui/components/portion-input/portion-input.unit.test.tsx" />
+      <test-file value="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.unit.test.tsx" />
       <test-names>
-        <test-name value="PortionInput" />
+        <test-name value="ProductList" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="RecommendedProductsSection" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="SessionProvider" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/ui/components/products-list/recommended-products-section/recommended-products-section.unit.test.tsx" />
+      <test-file value="$PROJECT_DIR$/ui/providers/session/provider.unit.test.tsx" />
       <test-names>
-        <test-name value="RecommendedProductsSection" />
+        <test-name value="SessionProvider" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Shoplist" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Shoplist.RecommendedProductsSection integration inside Shoplist" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
@@ -174,16 +179,17 @@
       <test-file value="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" />
       <test-names>
         <test-name value="Shoplist" />
+        <test-name value="RecommendedProductsSection integration inside Shoplist" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.RecommendedProductsSection" />
-        <item itemvalue="Jest.PortionInput" />
-        <item itemvalue="Jest.Shoplist" />
+        <item itemvalue="Jest.SessionProvider" />
+        <item itemvalue="Jest.ProductList" />
+        <item itemvalue="Jest.Shoplist.RecommendedProductsSection integration inside Shoplist" />
         <item itemvalue="Jest.Pantry" />
-        <item itemvalue="Jest.Pantry.should add an item to the shoplist when addItemToCart button is pressed and call updatePantry" />
+        <item itemvalue="Jest.Pantry.ProductList integration" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +232,7 @@
       <workItem from="1756509810640" duration="23592000" />
       <workItem from="1756844997549" duration="3049000" />
       <workItem from="1757103724804" duration="733000" />
-      <workItem from="1757446626908" duration="4328000" />
+      <workItem from="1757446626908" duration="10300000" />
     </task>
     <servers />
   </component>

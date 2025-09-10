@@ -3,11 +3,9 @@ import {render, fireEvent, waitFor} from '@testing-library/react-native';
 import {ITEM_STATE} from "../../../../services/enums";
 import {PantryItem} from "../../../../services/pantry/type";
 import {Product} from "../../../../services/product/type";
-import * as shoplistService from "../../../../services/shoplist";
+import * as pantryService from "../../../../services/pantry";
 import ProductList from "../../../components/products-list/search-product/add-products-drawer";
-import Shoplist from "../shoplist";
 import Pantry from './index';
-import * as pantryService from '../../../../services/pantry';
 import * as productService from '../../../../services/product';
 import {useSession} from '../../../../hooks/use-session';
 
@@ -89,7 +87,7 @@ describe('Pantry', () => {
         });
     });
 
-    it('should throttle updatePantry on weight changes', async () => {
+    it('should debounce updatePantry on weight changes', async () => {
         const updatedOnce = [
             { ...sampleItems[0], portion: 5 },
             sampleItems[1]
@@ -110,7 +108,7 @@ describe('Pantry', () => {
                     {
                         id: '1',
                         name: 'Arroz',
-                        portion: 1,
+                        portion: 5,
                         portionType: 'GRAMS',
                         productId: 'p1',
                         state: ITEM_STATE.UPDATED,
@@ -155,7 +153,7 @@ describe('Pantry', () => {
         });
     });
 
-    it('should add an item to the shoplist when addItemToCart button is pressed and call updatePantry', async () => {
+    it('should add an item to the pantry when addItemToCart button is pressed and call updatePantry', async () => {
         const remainingItems = [ sampleItems[1] ];
         (pantryService.updatePantry as jest.Mock).mockResolvedValue({ items: remainingItems });
 
@@ -195,19 +193,28 @@ describe('Pantry', () => {
             (pantryService.updatePantry as jest.Mock).mockResolvedValue({ items: [] });
         });
 
-        it('should open drawer and list products', async () => {
+        it('should open drawer and list products when typing in search input', async () => {
             const afterInsert = jest.fn();
-            const { getByTestId, getByText } = render(<ProductList variant="pantry" afterInsert={afterInsert} />);
-            fireEvent.press(getByTestId('open-drawer-button'));
+            const { getByPlaceholderText, getByText } = render(
+                <ProductList variant="pantry" afterInsert={afterInsert} />
+            );
+
+            const searchInput = getByPlaceholderText('Buscar produtos...');
+            fireEvent.changeText(searchInput, 'arr');
 
             await waitFor(() => expect(getByText('Arroz')).toBeTruthy());
             expect(getByText('Feijões')).toBeTruthy();
         });
 
-        it('should select product and call updatePantry on FAB press', async () => {
+        it('should select product and call updateShoplist on FAB press', async () => {
             const afterInsert = jest.fn();
-            const { getByTestId, getByText } = render(<ProductList variant="pantry" afterInsert={afterInsert} />);
-            fireEvent.press(getByTestId('open-drawer-button'));
+            const { getByPlaceholderText, getByText, getByTestId } = render(
+                <ProductList variant="pantry" afterInsert={afterInsert} />
+            );
+
+            const searchInput = getByPlaceholderText('Buscar produtos...');
+            fireEvent.changeText(searchInput, 'arr');
+
             await waitFor(() => expect(getByText('Arroz')).toBeTruthy());
 
             fireEvent.press(getByText('Arroz'));
@@ -215,14 +222,21 @@ describe('Pantry', () => {
             fireEvent.press(fab);
 
             await waitFor(() => {
-                expect(pantryService.updatePantry).toHaveBeenCalledWith({ items: [
-                        { productId: 'p1', portionType: 'GRAMS', portion: 1, state: ITEM_STATE.IN_PANTRY, validForDays: 0 }
-                    ]});
+                expect(pantryService.updatePantry).toHaveBeenCalledWith({
+                    items: [
+                        {
+                            productId: 'p1',
+                            portionType: 'GRAMS',
+                            portion: 1,
+                            state: ITEM_STATE.IN_PANTRY,
+                            validForDays: 0,
+                        },
+                    ],
+                });
                 expect(afterInsert).toHaveBeenCalled();
             });
-
         });
-
-
     });
+
+
 });

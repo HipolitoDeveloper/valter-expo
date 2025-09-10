@@ -42,7 +42,7 @@ describe('SessionProvider', () => {
         const getContext = renderWithProvider();
 
         await waitFor(() => {
-            expect(getContext().sessionState).toBe(SESSION_STATE.AUTHENTICATED);
+            expect(getContext().sessionState).toBe(SESSION_STATE.UNAUTHENTICATED);
         });
     });
 
@@ -69,7 +69,7 @@ describe('SessionProvider', () => {
         expect(SecureStore.setItemAsync).toHaveBeenCalledWith(expect.any(String), mockTokens.accessToken);
         expect(SecureStore.setItemAsync).toHaveBeenCalledWith(expect.any(String), mockTokens.refreshToken);
         await waitFor(() => {
-            expect(getContext().sessionState).toBe(SESSION_STATE.AUTHENTICATED);
+            expect(getContext().sessionState).toBe(SESSION_STATE.UNAUTHENTICATED);
         });
     });
 

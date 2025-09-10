@@ -11,11 +11,20 @@ type ScreenProps = ViewProps & IHStackProps & IVStackProps & {
     darkColor?: string;
     direction?: 'row' | 'column';
     loading: boolean;
+    backgroundColor?: string
 }
 
-const Screen: React.FC<ScreenProps> = ({children, style, lightColor, darkColor, direction, loading, ...otherProps}) => {
+const Screen: React.FC<ScreenProps> = ({
+                                           children,
+                                           style,
+                                           lightColor,
+                                           darkColor,
+                                           direction,
+                                           loading,
+                                           backgroundColor = '#ffffff',
+                                           ...otherProps
+                                       }) => {
     // const backgroundColor = useThemeColor({light: lightColor, dark: darkColor}, 'background');
-    const backgroundColor = '#ffffff'; // Default to white if no colors provided
     let containerElement;
 
     switch (direction) {

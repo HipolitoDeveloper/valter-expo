@@ -19,8 +19,8 @@ type PantryPresentationalProps = {
     doSomething?: () => void;
     control: Control<PantryItemsSchemaType>
     pantryItems: PantryItemsSchemaType['pantryItems']
-    onPortionChange: (pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id'] ) => void;
-    onPortionTypeChange: (pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id'] ) => void;
+    onPortionChange: (pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id']) => void;
+    onPortionTypeChange: (pantryItemId: PantryItemsSchemaType['pantryItems'][number]['id']) => void;
     hasModification: boolean;
     refreshPantry: () => void;
     updatePantryItemState: (pantryItem: PantryItemsSchemaType['pantryItems'][number], state: ItemState) => void;
@@ -56,7 +56,7 @@ const PantryItemBox = ({
 
 
     return (
-        <HStack className={'h-24 justify-between items-center '}>
+        <HStack className={'h-16 justify-between items-center '}>
 
             <HStack className={'w-2/6 h-full justify-start items-center'}>
                 <Button variant={'invisible'}
@@ -76,13 +76,13 @@ const PantryItemBox = ({
                 <PortionTypeSelector
                     testID={`portion-type-selector-${pantryItem.id}`}
                     control={control}
-                                     name={FormKeys.pantryItemsPortionType(index)}
-                                     onValueChange={onPortionTypeChange}
+                    name={FormKeys.pantryItemsPortionType(index)}
+                    onValueChange={onPortionTypeChange}
 
                 />
             </HStack>
             <VStack className={'w-3/6 h-full justify-center items-start'}>
-                <Text size={'2xl'}>
+                <Text size={'xl'}>
                     {pantryItem.name}
                 </Text>
             </VStack>
@@ -113,36 +113,39 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
 
     return (
         <>
-            <Text onPress={doSomething}>Valter</Text>
-
-            <VStack className={'w-full flex-1 '}>
-                <Text size={'xl'} bold>Despensa</Text>
-                <AddProductsDrawer variant={'pantry'} afterInsert={refreshPantry}/>
-
-                <VStack space={'xl'}>
-                    {pantryItems.map((pantryItem, index) => (
-                        <PantryItemBox key={pantryItem.id}
-                                       pantryItem={pantryItem}
-                                       index={index}
-                                       control={control}
-                                       updatePantryItemState={updatePantryItemState}
-                                       onPortionTypeChange={() => onPortionTypeChange(pantryItem.id)}
-                                       onPortionChange={() => onPortionChange(pantryItem.id)}
-                        />
-                    ))}
+            <VStack className={'w-full h-full '}>
+                <Box className={'flex-[1]'}>
+                    <AddProductsDrawer variant={'pantry'} afterInsert={refreshPantry}/>
+                </Box>
+                <VStack space={'xl'} className={'w-full flex-[10] bg-white p-2 rounded-tl-3xl rounded-tr-3xl'}>
+                    <Box className={'px-4 pt-2'}>
+                        <Text size={'lg'} className={'font-black'}>
+                            Aqui estão os itens da sua despensa
+                        </Text>
+                    </Box>
+                    <VStack space={'md'} className={'flex-[9.5]'}>
+                        {pantryItems?.length !== 0 ? (
+                        pantryItems.map((pantryItem, index) => (
+                            <PantryItemBox key={pantryItem.id}
+                                           pantryItem={pantryItem}
+                                           index={index}
+                                           control={control}
+                                           updatePantryItemState={updatePantryItemState}
+                                           onPortionTypeChange={() => onPortionTypeChange(pantryItem.id)}
+                                           onPortionChange={() => onPortionChange(pantryItem.id)}
+                            />
+                            ))): (
+                            <VStack className={'flex-1 justify-center '}>
+                                <Text size={'lg'} className={'font-black text-center'}>
+                                    Sua despensa está vazia!
+                                </Text>
+                            </VStack>
+                        )}
+                    </VStack>
                 </VStack>
 
 
             </VStack>
-
-            {/*{hasModification && (*/}
-            {/*    <Box className={'w-full'}>*/}
-            {/*        <Button onPress={updatePantry}>*/}
-            {/*            <Text>Salvar Despensa</Text>*/}
-            {/*        </Button>*/}
-            {/*    </Box>*/}
-            {/*)}*/}
-
         </>
     );
 }

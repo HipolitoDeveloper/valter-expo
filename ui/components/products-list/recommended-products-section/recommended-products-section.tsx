@@ -70,6 +70,7 @@ const RecommendedProductsSection: React.FC<RecommendedProductsSectionProps> = ({
 
     useEffect(() => {
         fetchProducts()
+        console.log("TESTE")
     }, []);
 
 
@@ -133,6 +134,7 @@ const RecommendedProductsSection: React.FC<RecommendedProductsSectionProps> = ({
                 {products.map((product) => (
                     <Box className="w-1/3 p-6" key={product.id}>
                         <ProductBox
+                            testID={`recommended-product-${product.id}`}
                             className={'rounded-lg'}
                             height={'h-10'}
                             key={product.id}

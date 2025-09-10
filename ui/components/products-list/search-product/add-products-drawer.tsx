@@ -8,6 +8,7 @@ import {findAllProducts} from "../../../../services/product";
 import {PORTION_TYPE, Product} from "../../../../services/product/type";
 import {updateShoplist} from "../../../../services/shoplist";
 import {UpdateShoplistBody} from "../../../../services/shoplist/type";
+import {FormKeys} from "../../../screens/access/signin/enum";
 import {
     Drawer,
     DrawerBackdrop,
@@ -18,6 +19,7 @@ import {
     DrawerHeader
 } from "../../drawer";
 import {Fab, FabIcon, FabLabel} from "../../fab";
+import {Input, InputField} from "../../form/input";
 import {HStack} from "../../hstack";
 import {AddIcon} from "../../icon";
 import {Pressable} from "../../pressable";
@@ -26,7 +28,7 @@ import {Text} from "../../text";
 import {VStack} from "../../vstack";
 import ProductBox from "../product-box";
 import {SelectedProduct} from "../type";
-import OpenButton from "./open-button";
+import OpenTrigger from "./open-trigger";
 
 
 type ProductListProps = {
@@ -41,6 +43,7 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([])
     const [products, setProducts] = useState<Product[]>([])
     const [loading, setLoading] = useState(false)
+    const [search, setSearch] = useState('')
 
 
     const fetchProducts = useCallback(async () => {
@@ -48,7 +51,8 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
         try {
             const products = await findAllProducts({
                 limit: 10,
-                page: 1
+                page: 1,
+                search
             });
 
             setProducts(products.data);
@@ -61,11 +65,20 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
             }
             setLoading(false)
         }
-    }, [visible])
+    }, [visible, search])
 
-    const openDrawer = () => {
-        setVisible(true)
+    const handleSearch = (value: string) => {
+        setSearch(value)
+
     }
+    const openDrawer = (value: string) => {
+        handleSearch(value)
+        if(value.length >= 3) {
+            setVisible(true)
+        }
+    }
+
+
 
     const closeDrawer = () => {
         setProducts([])
@@ -128,11 +141,11 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
         if(visible) {
             fetchProducts()
         }
-    }, [fetchProducts, visible]);
+    }, [fetchProducts, visible, search]);
 
 
     return <>
-        <OpenButton onPress={openDrawer}/>
+        <OpenTrigger onSearch={openDrawer}/>
         <Drawer isOpen={visible}
                 anchor={'bottom'}
                 size={'lg'}
@@ -146,6 +159,14 @@ const ProductList: React.FC<ProductListProps> = ({variant, afterInsert}) => {
                     </Text>
                 </DrawerHeader>
                 <DrawerBody>
+                    <Input variant={'rounded'} className={'bg-gray-100 ms-safe-or-5 me-safe-or-5 mb-5'}>
+                        <InputField
+                            placeholder={'Buscar produtos...'}
+                            onChangeText={handleSearch}
+                            value={search}
+                            autoFocus={true}
+                        />
+                    </Input>
                     <VStack className={'flex-1'} space={'xl'}>
                         {loading ? <Spinner size="large" color="green"/> :
                         products.map((product) => (

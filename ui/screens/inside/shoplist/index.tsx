@@ -1,5 +1,6 @@
 import {zodResolver} from "@hookform/resolvers/zod";
-import React, {useCallback, useEffect, useMemo, useState} from "react";
+import {debounce} from "lodash";
+import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";
 import {useSession} from "../../../../hooks/use-session";
@@ -103,7 +104,7 @@ const Shoplist = () => {
     }, [reset, currentProfile]);
 
     const saveShoplist = async (updatedShoplist: ShoplistItemsSchemaType, handleLoading: boolean = true) => {
-            setLoading(true)
+        setLoading(true)
         try {
 
             const itemsToUpdate = updatedShoplist.shoplistItems.map(item => ({
@@ -150,14 +151,13 @@ const Shoplist = () => {
 
     const updateShoplistItemPortion = useMemo(
         () =>
-            throttle((pantryItemId: ShoplistItemsSchemaType['shoplistItems'][number]['id']) => {
+            debounce((pantryItemId: ShoplistItemsSchemaType['shoplistItems'][number]['id']) => {
                 const shoplistItem = getValues().shoplistItems.find(item => item.id === pantryItemId) as ShoplistItemsSchemaType['shoplistItems'][number];
                 const updatedShoplistItem = {
                     shoplistItems: [{...shoplistItem, state: ITEM_STATE.UPDATED}],
-
-                }
+                };
                 saveShoplist(updatedShoplistItem, false);
-            }, 2000, {leading: true, trailing: true}),
+            }, 600),
         []
     );
 
@@ -190,7 +190,7 @@ const Shoplist = () => {
     }, [fetchShoplistItems, reset]);
 
     return (
-        <Screen className={'justify-between'} loading={loading}>
+        <Screen className={'justify-between'} backgroundColor={'rgb(246 246 246)'} loading={loading}>
             <ShoplistPresentational doSomething={doSomething}
                                     control={control}
                                     shoplistItems={shoplistItems}
