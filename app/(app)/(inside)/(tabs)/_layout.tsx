@@ -8,7 +8,7 @@ import { config } from '../../../../ui/providers/gluestack-ui-provider/config';
 const tabs = [
     { name: '(app)/(inside)/(tabs)', title: 'Lista de Compras', icon: 'home-outline' },
     { name: '(app)/(inside)/(tabs)/pantry', title: 'Despensa', icon: 'fast-food-outline' },
-    { name: '(app)/(inside)/(tabs)/profile', title: 'Perfil', icon: 'person-outline' },
+    { name: '(app)/(inside)/(tabs)/notification', title: 'Notificações', icon: 'person-outline' },
 ];
 
 export default function TabLayout() {

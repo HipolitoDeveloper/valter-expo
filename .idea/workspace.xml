@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4e439a4-e9bd-4ed4-bcb3-ba7e04077f03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/open-trigger.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(app)/(inside)/(tabs)/notification.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/notification/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/notification/type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/screens/inside/notification/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/screens/inside/notification/presentational/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product/type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/Screen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/form/input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/form/input/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/products-list/product-box.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/product-box.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/products-list/recommended-products-section/recommended-products-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/recommended-products-section/recommended-products-section.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/components/products-list/search-product/add-products-drawer.unit.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/components/products-list/search-product/open-button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/providers/session/provider.unit.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/providers/session/provider.unit.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.integration.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/pantry/presentational/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.integration.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/screens/inside/shoplist/presentational/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(app)/(inside)/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(app)/(inside)/(tabs)/_layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,26 +77,29 @@
     "Jest.SignUp.submits form and signs in on success.executor": "Run",
     "Jest.transformValueIntoLabel().executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/ui/screens/inside/shoplist",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/hipolito/Projects/valter/valter-expo/services/notification",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs.jest.jest_package": "/Users/hipolito/Projects/valter/valter-expo/node_modules/jest",
     "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Users/hipolito/Projects/valter/valter-expo/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/services/notification" />
+      <recent name="$PROJECT_DIR$/ui/screens/inside" />
       <recent name="$PROJECT_DIR$/ui/screens/inside/shoplist" />
       <recent name="$PROJECT_DIR$/services" />
       <recent name="$PROJECT_DIR$/ui/screens/inside/pantry" />
-      <recent name="$PROJECT_DIR$/app/(app)/(inside)/(tabs)" />
-      <recent name="$PROJECT_DIR$/app/(app)/(inside)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ui/components/products-list" />
@@ -196,7 +188,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-WS-252.26199.162" />
       </set>
     </attachedChunks>
   </component>
@@ -232,7 +224,12 @@
       <workItem from="1756509810640" duration="23592000" />
       <workItem from="1756844997549" duration="3049000" />
       <workItem from="1757103724804" duration="733000" />
-      <workItem from="1757446626908" duration="10300000" />
+      <workItem from="1757446626908" duration="10410000" />
+      <workItem from="1757505431656" duration="15000" />
+      <workItem from="1757969893144" duration="1273000" />
+      <workItem from="1758679832936" duration="778000" />
+      <workItem from="1759663658867" duration="651000" />
+      <workItem from="1759802732442" duration="3080000" />
     </task>
     <servers />
   </component>
