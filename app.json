@@ -3,9 +3,13 @@
     "name": "Valter",
     "slug": "valter-expo",
     "version": "1.0.0",
+    "owner": "hipolitodeveloper",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "Valter",
+    "scheme": "valter",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

@@ -66,11 +66,11 @@ const NotificationItemBox = ({
 type NotificationPresentationalProps = {
     notifications: GetNotificationsResponse['data'];
     handleDetails: (notificationId: string, isOut: boolean, isExpired: boolean) => void;
-
+    onRefresh: () => void;
 }
 
 const NotificationPresentational: React.FC<NotificationPresentationalProps> = ({
-                                                                                   notifications, handleDetails
+                                                                                   notifications, handleDetails, onRefresh
                                                                                }) => {
     return (
         <>
@@ -99,6 +99,14 @@ const NotificationPresentational: React.FC<NotificationPresentationalProps> = ({
                             </VStack>
                         )}
                     </VStack>
+                    <Box className={'items-center pb-4'}>
+                        <Button variant={'outline'}
+                                action={'primary'}
+                                size={'lg'}
+                                onPress={onRefresh}>
+                            <ButtonIcon as={RepeatIcon}/>
+                        </Button>
+                    </Box>
                 </VStack>
             </VStack>
         </>

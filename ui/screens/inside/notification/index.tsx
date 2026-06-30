@@ -58,6 +58,7 @@ const Notification = () => {
             <NotificationPresentational
                 notifications={notification}
                 handleDetails={handleDetails}
+                onRefresh={fetchNotifications}
             />
         </Screen>
     )

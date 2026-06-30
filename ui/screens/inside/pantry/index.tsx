@@ -1,5 +1,5 @@
 import {zodResolver} from "@hookform/resolvers/zod";
-import {debounce} from "lodash";
+import debounce from "lodash/debounce";
 import React, {useCallback, useEffect, useMemo, useState} from "react";
 import {useFieldArray, useForm} from "react-hook-form";
 import HttpError from "../../../../common/errors/http-error";

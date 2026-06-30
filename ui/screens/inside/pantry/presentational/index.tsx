@@ -1,5 +1,6 @@
 import React from "react";
 import {Control} from "react-hook-form";
+import {FlatList} from "react-native";
 import {ITEM_STATE, ItemState} from "../../../../../services/enums";
 import {Box} from "../../../../components/box";
 import {Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText} from "../../../../components/button";
@@ -37,6 +38,20 @@ type PantryItemBoxProps = {
 
 }
 
+const getStateLabel = (state: string): { text: string; color: string } => {
+    switch (state) {
+        case ITEM_STATE.OUT:
+            return {text: 'Esgotado', color: 'text-red-500'};
+        case ITEM_STATE.EXPIRED:
+            return {text: 'Expirado', color: 'text-orange-500'};
+        case ITEM_STATE.IN_PANTRY:
+        case ITEM_STATE.PURCHASED:
+        case ITEM_STATE.UPDATED:
+        default:
+            return {text: 'Disponível', color: 'text-green-600'};
+    }
+}
+
 const PantryItemBox = ({
                            control,
                            index,
@@ -54,6 +69,7 @@ const PantryItemBox = ({
         updatePantryItemState(pantryItem, ITEM_STATE.IN_CART);
     }
 
+    const stateLabel = getStateLabel(pantryItem.state);
 
     return (
         <HStack className={'h-16 justify-between items-center '}>
@@ -84,6 +100,9 @@ const PantryItemBox = ({
             <VStack className={'w-3/6 h-full justify-center items-start'}>
                 <Text size={'xl'}>
                     {pantryItem.name}
+                </Text>
+                <Text size={'xs'} className={stateLabel.color}>
+                    {stateLabel.text}
                 </Text>
             </VStack>
             <HStack className={'w-1/6 h-full justify-end items-center'} space={'md'}>
@@ -124,30 +143,31 @@ const PantryPresentational: React.FC<PantryPresentationalProps> = ({
                         </Text>
                     </Box>
                     <VStack space={'md'} className={'flex-[9.5]'}>
-                        {pantryItems?.length !== 0 ? (
-                        pantryItems.map((pantryItem, index) => (
-                            <PantryItemBox key={pantryItem.id}
-                                           pantryItem={pantryItem}
-                                           index={index}
-                                           control={control}
-                                           updatePantryItemState={updatePantryItemState}
-                                           onPortionTypeChange={() => onPortionTypeChange(pantryItem.id)}
-                                           onPortionChange={() => onPortionChange(pantryItem.id)}
-                            />
-                            ))): (
-                            <VStack className={'flex-1 justify-center '}>
+                        <FlatList
+                            data={pantryItems}
+                            keyExtractor={(item) => item.id.toString()}
+                            renderItem={({item, index}) => (
+                                <PantryItemBox key={item.id}
+                                               pantryItem={item}
+                                               index={index}
+                                               control={control}
+                                               updatePantryItemState={updatePantryItemState}
+                                               onPortionTypeChange={() => onPortionTypeChange(item.id)}
+                                               onPortionChange={() => onPortionChange(item.id)}
+                                />
+                            )}
+                            ListEmptyComponent={() => (<VStack className={'flex-1 justify-center '}>
                                 <Text size={'lg'} className={'font-black text-center'}>
                                     Sua despensa está vazia!
                                 </Text>
-                            </VStack>
-                        )}
+                            </VStack>)
+                            }/>
                     </VStack>
                 </VStack>
-
-
             </VStack>
         </>
-    );
+    )
+        ;
 }
 
 export default PantryPresentational

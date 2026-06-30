@@ -10,7 +10,7 @@ type ScreenProps = ViewProps & IHStackProps & IVStackProps & {
     lightColor?: string;
     darkColor?: string;
     direction?: 'row' | 'column';
-    loading: boolean;
+    loading?: boolean;
     backgroundColor?: string
 }
 
@@ -56,8 +56,9 @@ const Screen: React.FC<ScreenProps> = ({
 
     return (
         <Box style={[{backgroundColor}, {flex: 1, alignItems: 'center', justifyContent: 'flex-start'}]}>
-            {loading ? <Box className={'flex-1 items-center justify-center'}><Spinner size="large" color="green"/>
-            </Box> : containerElement}
+            {/*{loading ? <Box className={'flex-1 items-center justify-center'}><Spinner size="large" color="green"/>*/}
+            {/*</Box> : containerElement}*/}
+            {containerElement}
         </Box>)
 
 }

@@ -70,7 +70,6 @@ const RecommendedProductsSection: React.FC<RecommendedProductsSectionProps> = ({
 
     useEffect(() => {
         fetchProducts()
-        console.log("TESTE")
     }, []);
 
 
@@ -118,6 +117,7 @@ const RecommendedProductsSection: React.FC<RecommendedProductsSectionProps> = ({
         <VStack className="w-full shrink min-w-0 overflow-hidden">
             <Box className={'w-full h-10'}>
                 <HStack className={'w-full h-full justify-between items-center px-4'}>
+                    <Button onPress={fetchProducts} variant={'outline'} />
                     <Text size={'lg'}>Produtos recomendados</Text>
                     {selectedProducts.length > 0 &&
                         <Button onPress={addProducts}

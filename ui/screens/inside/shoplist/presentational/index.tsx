@@ -1,5 +1,6 @@
 import React from "react";
 import {Control} from "react-hook-form";
+import {FlatList} from "react-native";
 import {ITEM_STATE, ItemState} from "../../../../../services/enums";
 import {Box} from "../../../../components/box";
 import {Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText} from "../../../../components/button";
@@ -125,23 +126,26 @@ const ShoplistPresentational: React.FC<ShoplistPresentationalProps> = ({
                     <RecommendedProductsSection className={'flex-[0.5]'} afterInsert={refreshShoplist}/>
 
                     <VStack space={'md'} className={'flex-[9.5]'}>
-                        {shoplistItems?.length !== 0 ? (
-                            shoplistItems.map((shoplistItem, index) => (
-                                <ShoplistItemBox key={shoplistItem.id}
-                                                 shoplistItem={shoplistItem}
+                        <FlatList
+                            data={shoplistItems}
+                            keyExtractor={(item) => item.id.toString()}
+                            renderItem={({item, index}) => (
+                                <ShoplistItemBox key={item.id}
+                                                 shoplistItem={item}
                                                  index={index}
                                                  control={control}
                                                  updateShoplistItemState={updateItemState}
-                                                 onPortionTypeChange={() => onPortionTypeChange(shoplistItem.id)}
-                                                 onPortionChange={() => onPortionChange(shoplistItem.id)}
+                                                 onPortionTypeChange={() => onPortionTypeChange(item.id)}
+                                                 onPortionChange={() => onPortionChange(item.id)}
                                 />
-                            ))) : (
-                            <VStack className={'flex-1 justify-center '}>
+                            )}
+                            ListEmptyComponent={() => (<VStack className={'flex-1 justify-center '}>
                                 <Text size={'lg'} className={'font-black text-center'}>
-                                    Sua lista de compras está vazia. Adicione produtos para começar!
+                                    Sua despensa está vazia!
                                 </Text>
-                            </VStack>
-                        )}
+                            </VStack>)
+                            }/>
+
                     </VStack>
                 </VStack>
 

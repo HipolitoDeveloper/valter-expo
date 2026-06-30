@@ -3,6 +3,8 @@ export const ITEM_STATE = {
     REMOVED: 'REMOVED',
     IN_PANTRY: 'IN_PANTRY',
     PURCHASED: 'PURCHASED',
-    UPDATED: 'UPDATED'
+    UPDATED: 'UPDATED',
+    OUT: 'OUT',
+    EXPIRED: 'EXPIRED'
 };
 export type ItemState = (typeof ITEM_STATE)[keyof typeof ITEM_STATE]
